@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --ocean-blue: #003366;
+      --pearl-white: #F8F8F8;
+      --gold-accent: #D4AF37;
+      --seafoam-green: #7FCDCD;
+      --dark-text: #1a1a1a;
+      --light-text: #ffffff;
+      --alert-red: #dc3545;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .slide {
+      width: 960px;
+      height: 540px;
+      background: var(--pearl-white);
+      position: relative;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--ocean-blue) 0%, #004d7a 100%);
+      padding: 30px 50px;
+      border-bottom: 4px solid var(--gold-accent);
+    }
+
+    .header-title {
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--light-text);
+      margin: 0;
+    }
+
+    .content {
+      padding: 40px 50px;
+    }
+
+    .row {
+      display: block;
+      clear: both;
+      margin-bottom: 30px;
+    }
+
+    .col {
+      float: left;
+      box-sizing: border-box;
+    }
+
+    .col-50 {
+      width: 50%;
+      padding: 0 15px;
+    }
+
+    .crisis-stat {
+      background: white;
+      border-left: 6px solid var(--alert-red);
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .stat-number {
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--alert-red);
+      margin: 0;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 18px;
+      color: var(--dark-text);
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+
+    .comparison-box {
+      background: white;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .comparison-label {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ocean-blue);
+      margin-bottom: 8px;
+    }
+
+    .comparison-price {
+      font-size: 32px;
+      font-weight: 700;
+      margin: 5px 0;
+    }
+
+    .price-low {
+      color: var(--alert-red);
+    }
+
+    .price-high {
+      color: #28a745;
+    }
+
+    .impact-box {
+      background: linear-gradient(135deg, var(--ocean-blue) 0%, #004d7a 100%);
+      color: var(--light-text);
+      padding: 25px;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .impact-text {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="header">
+      <h1 class="header-title">The Crisis</h1>
+    </div>
+
+    <div class="content">
+      <div class="row clearfix">
+        <div class="col col-50">
+          <div class="crisis-stat">
+            <div class="stat-number">75%</div>
+            <div class="stat-label">Revenue Collapse in 2 Years</div>
+          </div>
+
+          <div class="crisis-stat">
+            <div class="stat-number">12 → 3</div>
+            <div class="stat-label">Container Shipments to Singapore<br/>(Annual Volume)</div>
+          </div>
+        </div>
+
+        <div class="col col-50">
+          <div class="comparison-box">
+            <div class="comparison-label">Chinese Farmed Abalone</div>
+            <div class="comparison-price price-low">$8-12/kg</div>
+          </div>
+
+          <div class="comparison-box">
+            <div class="comparison-label">Our Wild Abalone</div>
+            <div class="comparison-price price-high">$40-60/kg</div>
+          </div>
+
+          <div class="comparison-box">
+            <div class="comparison-label">Price Gap</div>
+            <div class="comparison-price" style="color: var(--ocean-blue);">5X Higher</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="impact-box">
+        <p class="impact-text">16 Diving Families at Risk</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Speaker Notes:
+  We're facing an existential crisis. In just two years, our revenue has collapsed by 75%, with shipments dropping from 12 containers to just 3. Chinese farmed abalone at $8-12 per kilogram is undercutting our wild product priced at $40-60, making us uncompetitive in traditional food markets. The livelihoods of 16 diving families hang in the balance.
+  -->
+</body>
+</html>

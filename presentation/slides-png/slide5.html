@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --ocean-blue: #003366;
+      --pearl-white: #F8F8F8;
+      --gold-accent: #D4AF37;
+      --seafoam-green: #7FCDCD;
+      --dark-text: #1a1a1a;
+      --light-text: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .slide {
+      width: 960px;
+      height: 540px;
+      background: var(--pearl-white);
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--ocean-blue) 0%, #004d7a 100%);
+      padding: 30px 50px;
+      border-bottom: 4px solid var(--gold-accent);
+    }
+
+    .header-title {
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--light-text);
+      margin: 0;
+    }
+
+    .content {
+      padding: 30px 50px;
+    }
+
+    .row {
+      display: block;
+      clear: both;
+      margin-bottom: 18px;
+    }
+
+    .col {
+      float: left;
+      box-sizing: border-box;
+    }
+
+    .col-50 {
+      width: 50%;
+      padding: 0 10px;
+    }
+
+    .col-100 {
+      width: 100%;
+    }
+
+    .market-stat {
+      background: white;
+      border-left: 5px solid var(--gold-accent);
+      padding: 20px 25px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-number {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--ocean-blue);
+      margin: 0 0 5px 0;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      color: var(--dark-text);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .trend-box {
+      background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+      border-left: 5px solid #28a745;
+      padding: 18px 22px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+    }
+
+    .trend-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #155724;
+      margin: 0 0 6px 0;
+    }
+
+    .trend-text {
+      font-size: 15px;
+      color: #155724;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .growth-icon {
+      color: #28a745;
+      font-size: 24px;
+      margin-right: 8px;
+    }
+
+    .comparison-row {
+      background: white;
+      padding: 15px 20px;
+      margin: 10px 0;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .comparison-label {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ocean-blue);
+      margin-bottom: 5px;
+    }
+
+    .comparison-value {
+      font-size: 14px;
+      color: var(--dark-text);
+    }
+
+    .up-arrow {
+      color: #28a745;
+      font-weight: 700;
+    }
+
+    .down-arrow {
+      color: #dc3545;
+      font-weight: 700;
+    }
+
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="header">
+      <h1 class="header-title">Market Opportunity</h1>
+    </div>
+
+    <div class="content">
+      <div class="row clearfix">
+        <div class="col col-50">
+          <div class="market-stat">
+            <div class="stat-number">$82B</div>
+            <div class="stat-label">Asian Beauty/Wellness Market Size (2024)</div>
+          </div>
+
+          <div class="market-stat">
+            <div class="stat-number">12.3%</div>
+            <div class="stat-label">Annual Growth Rate (CAGR)</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comparison-label"><span class="up-arrow">↗</span> Gen Z/Millennial Beauty Consumers</div>
+            <div class="comparison-value">Growing, digitally native, willing to pay premium for proven benefits</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comparison-label"><span class="down-arrow">↘</span> Traditional Banquet Market</div>
+            <div class="comparison-value">Declining, price-sensitive, commodity-focused</div>
+          </div>
+        </div>
+
+        <div class="col col-50">
+          <div class="trend-box">
+            <h4 class="trend-title"><span class="growth-icon">📈</span>Cultural Trend: "Eating Your Way to Beauty"</h4>
+            <p class="trend-text">Collagen drinks, bird's nest, pearl powder—ingestible beauty mainstream in Asia</p>
+          </div>
+
+          <div class="trend-box">
+            <h4 class="trend-title"><span class="growth-icon">🌿</span>Clean Beauty Movement</h4>
+            <p class="trend-text">Hormone-free, wild-sourced, sustainable—exactly our positioning</p>
+          </div>
+
+          <div class="trend-box">
+            <h4 class="trend-title"><span class="growth-icon">📱</span>Influencer-Driven Discovery</h4>
+            <p class="trend-text">Beauty consumers trust micro-influencers over traditional ads; cost-effective reach</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Speaker Notes:
+  The Asian beauty and wellness market is massive—$82 billion and growing 12% annually. We're targeting Gen Z and Millennial consumers who are growing, digitally native, and willing to pay premiums for proven benefits, unlike the declining banquet market. The "eating your way to beauty" trend is already mainstream, clean beauty is booming, and influencer marketing provides cost-effective access to our target audience.
+  -->
+</body>
+</html>

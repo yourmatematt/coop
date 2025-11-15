@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --ocean-blue: #003366;
+      --pearl-white: #F8F8F8;
+      --gold-accent: #D4AF37;
+      --seafoam-green: #7FCDCD;
+      --dark-text: #1a1a1a;
+      --light-text: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .slide {
+      width: 960px;
+      height: 540px;
+      background: var(--pearl-white);
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--ocean-blue) 0%, #004d7a 100%);
+      padding: 30px 50px;
+      border-bottom: 4px solid var(--gold-accent);
+    }
+
+    .header-title {
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--light-text);
+      margin: 0;
+    }
+
+    .content {
+      padding: 30px 50px;
+    }
+
+    .row {
+      display: block;
+      clear: both;
+      margin-bottom: 20px;
+    }
+
+    .col {
+      float: left;
+      box-sizing: border-box;
+    }
+
+    .col-50 {
+      width: 50%;
+      padding: 0 10px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ocean-blue);
+      margin: 0 0 15px 0;
+      border-bottom: 2px solid var(--gold-accent);
+      padding-bottom: 8px;
+    }
+
+    .test-item {
+      background: white;
+      padding: 15px 18px;
+      margin-bottom: 12px;
+      border-left: 4px solid var(--seafoam-green);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .test-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ocean-blue);
+      margin: 0 0 5px 0;
+    }
+
+    .test-description {
+      font-size: 14px;
+      color: var(--dark-text);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .success-box {
+      background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+      border: 2px solid #28a745;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    .success-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: #155724;
+      margin: 0 0 10px 0;
+    }
+
+    .success-criteria {
+      font-size: 16px;
+      color: #155724;
+      margin: 5px 0;
+      line-height: 1.5;
+    }
+
+    .check-icon {
+      color: #28a745;
+      margin-right: 8px;
+      font-weight: 700;
+    }
+
+    .info-box {
+      background: white;
+      border-left: 4px solid var(--gold-accent);
+      padding: 15px 20px;
+      margin: 8px 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .info-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ocean-blue);
+      margin: 0 0 4px 0;
+    }
+
+    .info-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold-accent);
+      margin: 0;
+    }
+
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="header">
+      <h1 class="header-title">Gate 1: Lab Testing (Detail)</h1>
+    </div>
+
+    <div class="content">
+      <div class="row clearfix">
+        <div class="col col-50">
+          <h3 class="section-title">Test Wild vs Farmed For:</h3>
+
+          <div class="test-item">
+            <div class="test-name">Collagen & Peptides</div>
+            <p class="test-description">Key compounds for skin elasticity and anti-aging</p>
+          </div>
+
+          <div class="test-item">
+            <div class="test-name">Omega-3 Fatty Acids</div>
+            <p class="test-description">Essential for skin hydration and inflammation</p>
+          </div>
+
+          <div class="test-item">
+            <div class="test-name">Minerals & Trace Elements</div>
+            <p class="test-description">Zinc, selenium, iron for cellular health</p>
+          </div>
+
+          <div class="test-item">
+            <div class="test-name">Hormone Testing</div>
+            <p class="test-description">Verify zero hormones and additives in wild</p>
+          </div>
+        </div>
+
+        <div class="col col-50">
+          <div class="success-box">
+            <div class="success-title">Success Criteria (GO Decision)</div>
+            <p class="success-criteria"><span class="check-icon">✓</span> ≥30% higher beneficial compounds in wild vs farmed</p>
+            <p class="success-criteria"><span class="check-icon">✓</span> Zero detectable hormones or additives</p>
+            <p class="success-criteria"><span class="check-icon">✓</span> Results from certified independent lab</p>
+          </div>
+
+          <div class="info-box">
+            <div class="info-label">Timeline</div>
+            <div class="info-value">6-8 Weeks</div>
+          </div>
+
+          <div class="info-box">
+            <div class="info-label">Investment</div>
+            <div class="info-value">$15,000 - $25,000</div>
+          </div>
+
+          <div class="info-box">
+            <div class="info-label">Exit Strategy</div>
+            <div class="info-value" style="font-size: 15px; font-weight: 600; color: var(--dark-text);">If results don't meet criteria, stop with minimal loss</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Speaker Notes:
+  Gate 1 is our foundation. We invest $15-25K to scientifically prove our wild abalone has at least 30% more beneficial compounds than farmed, with zero hormones. Testing covers collagen, peptides, omega-3s, and minerals—all key beauty ingredients. Timeline is 6-8 weeks. If results don't meet our criteria, we stop here with minimal financial exposure.
+  -->
+</body>
+</html>

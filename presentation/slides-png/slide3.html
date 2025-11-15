@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --ocean-blue: #003366;
+      --pearl-white: #F8F8F8;
+      --gold-accent: #D4AF37;
+      --seafoam-green: #7FCDCD;
+      --dark-text: #1a1a1a;
+      --light-text: #ffffff;
+      --alert-red: #dc3545;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .slide {
+      width: 960px;
+      height: 540px;
+      background: var(--pearl-white);
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--ocean-blue) 0%, #004d7a 100%);
+      padding: 30px 50px;
+      border-bottom: 4px solid var(--gold-accent);
+    }
+
+    .header-title {
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--light-text);
+      margin: 0;
+    }
+
+    .content {
+      padding: 35px 50px;
+    }
+
+    .strategy-box {
+      background: white;
+      border-left: 5px solid var(--alert-red);
+      padding: 20px 25px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .strategy-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ocean-blue);
+      margin: 0 0 8px 0;
+    }
+
+    .strategy-reason {
+      font-size: 17px;
+      color: var(--dark-text);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .cross-icon {
+      color: var(--alert-red);
+      font-weight: 700;
+      margin-right: 8px;
+      font-size: 20px;
+    }
+
+    .quote-box {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-left: 5px solid var(--seafoam-green);
+      padding: 20px 25px;
+      margin-top: 25px;
+      font-style: italic;
+    }
+
+    .quote-text {
+      font-size: 19px;
+      color: var(--dark-text);
+      margin: 0 0 10px 0;
+      line-height: 1.5;
+    }
+
+    .quote-author {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ocean-blue);
+      font-style: normal;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="header">
+      <h1 class="header-title">Why Traditional Strategies Won't Work</h1>
+    </div>
+
+    <div class="content">
+      <div class="strategy-box">
+        <h3 class="strategy-title"><span class="cross-icon">✗</span>Chef Education Programs</h3>
+        <p class="strategy-reason">Too resource-intensive for small co-op; requires dedicated staff, travel, and years to build relationships</p>
+      </div>
+
+      <div class="strategy-box">
+        <h3 class="strategy-title"><span class="cross-icon">✗</span>Retail Consumer Marketing</h3>
+        <p class="strategy-reason">Consumers won't pay 5X premium for food; price sensitivity too high in commodity market</p>
+      </div>
+
+      <div class="strategy-box">
+        <h3 class="strategy-title"><span class="cross-icon">✗</span>Premium Food Branding</h3>
+        <p class="strategy-reason">No existing brand equity; would require $60K+ investment in packaging, marketing, distribution without guaranteed ROI</p>
+      </div>
+
+      <div class="quote-box">
+        <p class="quote-text">"We're a small operation. We can't compete with marketing budgets or farming scale. We need a strategy that works with what we have—exceptional wild product and minimal resources."</p>
+        <p class="quote-author">— Charles, CEO</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Speaker Notes:
+  Traditional market strategies simply won't work for us. Chef programs demand resources we don't have. Consumers won't pay 5X for food regardless of quality. Premium branding requires major upfront investment with uncertain returns. We need a fundamentally different approach that leverages our strengths without resource constraints.
+  -->
+</body>
+</html>

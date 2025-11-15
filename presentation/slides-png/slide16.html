@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --ocean-blue: #003366;
+      --pearl-white: #F8F8F8;
+      --gold-accent: #D4AF37;
+      --seafoam-green: #7FCDCD;
+      --dark-text: #1a1a1a;
+      --light-text: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .slide {
+      width: 960px;
+      height: 540px;
+      background: var(--pearl-white);
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--ocean-blue) 0%, #004d7a 100%);
+      padding: 30px 50px;
+      border-bottom: 4px solid var(--gold-accent);
+    }
+
+    .header-title {
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--light-text);
+      margin: 0;
+    }
+
+    .content {
+      padding: 30px 50px;
+    }
+
+    .intro-text {
+      font-size: 18px;
+      color: var(--dark-text);
+      margin: 0 0 25px 0;
+      line-height: 1.6;
+    }
+
+    .steps-container {
+      display: block;
+    }
+
+    .step-item {
+      background: white;
+      border-left: 6px solid var(--seafoam-green);
+      padding: 20px 25px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .step-number {
+      position: absolute;
+      left: -30px;
+      top: 18px;
+      width: 45px;
+      height: 45px;
+      background: var(--gold-accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .step-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ocean-blue);
+      margin: 0 0 8px 0;
+      padding-left: 30px;
+    }
+
+    .step-description {
+      font-size: 15px;
+      color: var(--dark-text);
+      margin: 0;
+      line-height: 1.5;
+      padding-left: 30px;
+    }
+
+    .step-timeline {
+      display: inline-block;
+      background: var(--seafoam-green);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-left: 10px;
+    }
+
+    .action-box {
+      background: linear-gradient(135deg, var(--ocean-blue) 0%, #004d7a 100%);
+      color: var(--light-text);
+      padding: 25px 30px;
+      border-radius: 8px;
+      margin-top: 25px;
+      text-align: center;
+      border: 3px solid var(--gold-accent);
+    }
+
+    .action-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--gold-accent);
+      margin: 0 0 10px 0;
+    }
+
+    .action-text {
+      font-size: 18px;
+      margin: 0;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="header">
+      <h1 class="header-title">Immediate Next Steps</h1>
+    </div>
+
+    <div class="content">
+      <p class="intro-text">To begin this transformation, we need board approval for Gate 1 and execution of these 5 concrete steps:</p>
+
+      <div class="steps-container" style="position: relative; padding-left: 30px;">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <h3 class="step-title">Board Approval for Gate 1 <span class="step-timeline">Week 1</span></h3>
+          <p class="step-description">Secure $15-25K investment approval for lab testing phase</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <h3 class="step-title">Select Independent Lab <span class="step-timeline">Weeks 1-2</span></h3>
+          <p class="step-description">Identify certified lab specializing in marine product analysis and beauty compounds</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <h3 class="step-title">Collect Samples <span class="step-timeline">Week 3</span></h3>
+          <p class="step-description">Gather wild Mallacoota samples and Chinese farmed comparison samples</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <h3 class="step-title">Begin Testing <span class="step-timeline">Weeks 4-10</span></h3>
+          <p class="step-description">Comprehensive analysis: collagen, peptides, omega-3s, minerals, hormones</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">5</div>
+          <h3 class="step-title">First GO/NO-GO Decision <span class="step-timeline">Week 10</span></h3>
+          <p class="step-description">Review results: Proceed to Gate 2 or exit with minimal loss</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Speaker Notes:
+  The path forward is clear and concrete. Step one is board approval for the $15-25K Gate 1 investment. Within two weeks we select a certified lab. By week three we collect samples. Testing runs for 6-8 weeks. By week 10—just 10 weeks from today—we'll have our first GO/NO-GO decision based on hard scientific data, not guesswork.
+  -->
+</body>
+</html>

@@ -1,0 +1,91 @@
+{
+  "title": "Mallacoota Beauty Pivot Pitch Deck",
+  "resolution": "1920x1080",
+  "slides": [
+    {
+      "number": 1,
+      "filename": "slide1.html",
+      "outputPng": "slide-01.png"
+    },
+    {
+      "number": 2,
+      "filename": "slide2.html",
+      "outputPng": "slide-02.png"
+    },
+    {
+      "number": 3,
+      "filename": "slide3.html",
+      "outputPng": "slide-03.png"
+    },
+    {
+      "number": 4,
+      "filename": "slide4.html",
+      "outputPng": "slide-04.png"
+    },
+    {
+      "number": 5,
+      "filename": "slide5.html",
+      "outputPng": "slide-05.png"
+    },
+    {
+      "number": 6,
+      "filename": "slide6.html",
+      "outputPng": "slide-06.png"
+    },
+    {
+      "number": 7,
+      "filename": "slide7.html",
+      "outputPng": "slide-07.png"
+    },
+    {
+      "number": 8,
+      "filename": "slide8.html",
+      "outputPng": "slide-08.png"
+    },
+    {
+      "number": 9,
+      "filename": "slide9.html",
+      "outputPng": "slide-09.png"
+    },
+    {
+      "number": 10,
+      "filename": "slide10.html",
+      "outputPng": "slide-10.png"
+    },
+    {
+      "number": 11,
+      "filename": "slide11.html",
+      "outputPng": "slide-11.png"
+    },
+    {
+      "number": 12,
+      "filename": "slide12.html",
+      "outputPng": "slide-12.png"
+    },
+    {
+      "number": 13,
+      "filename": "slide13.html",
+      "outputPng": "slide-13.png"
+    },
+    {
+      "number": 14,
+      "filename": "slide14.html",
+      "outputPng": "slide-14.png"
+    },
+    {
+      "number": 15,
+      "filename": "slide15.html",
+      "outputPng": "slide-15.png"
+    },
+    {
+      "number": 16,
+      "filename": "slide16.html",
+      "outputPng": "slide-16.png"
+    },
+    {
+      "number": 17,
+      "filename": "slide17.html",
+      "outputPng": "slide-17.png"
+    }
+  ]
+}
