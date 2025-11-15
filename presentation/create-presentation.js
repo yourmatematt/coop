@@ -11,8 +11,29 @@ pres.company = 'Mallacoota Co-Op';
 pres.subject = 'Beauty Market Repositioning Strategy';
 pres.title = 'From Crisis to Opportunity: The Beauty Pivot';
 
-// Define layout (16:9)
-pres.layout = 'LAYOUT_16x9';
+// Define custom layout for 1920x1080px (Full HD 16:9)
+// At 96 DPI: 1920px = 20 inches, 1080px = 11.25 inches
+pres.defineLayout({ name: 'LAYOUT_1920x1080', width: 20, height: 11.25 });
+pres.layout = 'LAYOUT_1920x1080';
+
+// Scaling factor to convert from design coordinates (10" width) to Full HD (20" width)
+const SCALE = 2;
+
+// Helper function to scale coordinates for Full HD
+function s(value) {
+  return value * SCALE;
+}
+
+// Helper function to scale options object
+function scaleOpts(opts) {
+  const scaled = { ...opts };
+  if (opts.x !== undefined) scaled.x = s(opts.x);
+  if (opts.y !== undefined) scaled.y = s(opts.y);
+  if (opts.w !== undefined) scaled.w = s(opts.w);
+  if (opts.h !== undefined) scaled.h = s(opts.h);
+  if (opts.line && opts.line.width) scaled.line = { ...opts.line, width: s(opts.line.width) };
+  return scaled;
+}
 
 // Color palette
 const colors = {
@@ -42,7 +63,7 @@ function createSlide1() {
 
   // Main title
   slide.addText('From Crisis to Opportunity:\nThe Beauty Pivot', {
-    x: 0.5, y: 1.5, w: 9, h: 1.5,
+    x: s(0.5), y: s(1.5), w: s(9), h: s(1.5),
     fontSize: 48,
     bold: true,
     color: colors.lightText,
@@ -52,13 +73,13 @@ function createSlide1() {
 
   // Gold line
   slide.addShape('rect', {
-    x: 4, y: 3.1, w: 2, h: 0.05,
+    x: s(4), y: s(3.1), w: s(2), h: s(0.05),
     fill: { color: colors.goldAccent }
   });
 
   // Subtitle
   slide.addText('Repositioning Mallacoota Wild Abalone\nfor Premium Markets', {
-    x: 0.5, y: 3.4, w: 9, h: 0.8,
+    x: s(0.5), y: s(3.4), w: s(9), h: s(0.8),
     fontSize: 24,
     color: colors.seafoamGreen,
     align: 'center'
@@ -66,7 +87,7 @@ function createSlide1() {
 
   // Date
   slide.addText('November 2025', {
-    x: 0.5, y: 4.5, w: 9, h: 0.3,
+    x: s(0.5), y: s(4.5), w: s(9), h: s(0.3),
     fontSize: 18,
     color: colors.lightText,
     align: 'center'
@@ -74,7 +95,7 @@ function createSlide1() {
 
   // Company name
   slide.addText('MALLACOOTA BLACK LIP ABALONE CO-OPERATIVE', {
-    x: 0.5, y: 4.9, w: 9, h: 0.4,
+    x: s(0.5), y: s(4.9), w: s(9), h: s(0.4),
     fontSize: 20,
     bold: true,
     color: colors.goldAccent,
@@ -91,12 +112,12 @@ function createSlide2() {
 
   // Header
   slide.addShape('rect', {
-    x: 0, y: 0, w: 10, h: 0.8,
+    x: s(0), y: s(0), w: s(10), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('The Crisis', {
-    x: 0.5, y: 0.2, w: 9, h: 0.4,
+    x: s(0.5), y: s(0.2), w: s(9), h: s(0.4),
     fontSize: 36,
     bold: true,
     color: colors.lightText
@@ -104,80 +125,80 @@ function createSlide2() {
 
   // 75% stat box
   slide.addShape('rect', {
-    x: 0.5, y: 1.2, w: 4, h: 1,
+    x: s(0.5), y: s(1.2), w: s(4), h: s(1),
     fill: { color: 'ffffff' },
-    line: { color: colors.alertRed, width: 4, type: 'solid' }
+    line: { color: colors.alertRed, width: s(4), type: 'solid' }
   });
 
   slide.addText('75%', {
-    x: 0.7, y: 1.3, w: 3.6, h: 0.5,
+    x: s(0.7), y: s(1.3), w: s(3.6), h: s(0.5),
     fontSize: 44,
     bold: true,
     color: colors.alertRed
   });
 
   slide.addText('Revenue Collapse in 2 Years', {
-    x: 0.7, y: 1.8, w: 3.6, h: 0.3,
+    x: s(0.7), y: s(1.8), w: s(3.6), h: s(0.3),
     fontSize: 16,
     color: colors.darkText
   });
 
   // 12→3 containers stat box
   slide.addShape('rect', {
-    x: 0.5, y: 2.4, w: 4, h: 1,
+    x: s(0.5), y: s(2.4), w: s(4), h: s(1),
     fill: { color: 'ffffff' },
-    line: { color: colors.alertRed, width: 4, type: 'solid' }
+    line: { color: colors.alertRed, width: s(4), type: 'solid' }
   });
 
   slide.addText('12 → 3', {
-    x: 0.7, y: 2.5, w: 3.6, h: 0.5,
+    x: s(0.7), y: s(2.5), w: s(3.6), h: s(0.5),
     fontSize: 44,
     bold: true,
     color: colors.alertRed
   });
 
   slide.addText('Container Shipments to Singapore\n(Annual Volume)', {
-    x: 0.7, y: 3.0, w: 3.6, h: 0.3,
+    x: s(0.7), y: s(3.0), w: s(3.6), h: s(0.3),
     fontSize: 15,
     color: colors.darkText
   });
 
   // Price comparisons
   slide.addShape('rect', {
-    x: 5.0, y: 1.2, w: 4.5, h: 0.8,
+    x: s(5.0), y: s(1.2), w: s(4.5), h: s(0.8),
     fill: { color: 'ffffff' },
-    line: { color: 'e0e0e0', width: 1 }
+    line: { color: 'e0e0e0', width: s(1) }
   });
 
   slide.addText('Chinese Farmed Abalone', {
-    x: 5.2, y: 1.3, w: 4.1, h: 0.3,
+    x: s(5.2), y: s(1.3), w: s(4.1), h: s(0.3),
     fontSize: 14,
     bold: true,
     color: colors.oceanBlue
   });
 
   slide.addText('$8-12/kg', {
-    x: 5.2, y: 1.6, w: 4.1, h: 0.3,
+    x: s(5.2), y: s(1.6), w: s(4.1), h: s(0.3),
     fontSize: 28,
     bold: true,
     color: colors.alertRed
   });
 
   slide.addShape('rect', {
-    x: 5.0, y: 2.2, w: 4.5, h: 0.8,
+    x: s(5.0), y: s(2.2), w: s(4.5), h: s(0.8),
     fill: { color: 'ffffff' },
-    line: { color: 'e0e0e0', width: 1 }
+    line: { color: 'e0e0e0', width: s(1) }
   });
 
   slide.addText('Our Wild Abalone', {
-    x: 5.2, y: 2.3, w: 4.1, h: 0.3,
+    x: s(5.2), y: s(2.3), w: s(4.1), h: s(0.3),
     fontSize: 14,
     bold: true,
     color: colors.oceanBlue
   });
 
   slide.addText('$40-60/kg', {
-    x: 5.2, y: 2.6, w: 4.1, h: 0.3,
+    x: s(5.2), y: s(2.6), w: s(4.1), h: s(0.3),
     fontSize: 28,
     bold: true,
     color: colors.successGreen
@@ -185,12 +206,12 @@ function createSlide2() {
 
   // Impact box
   slide.addShape('rect', {
-    x: 0.5, y: 3.8, w: 9, h: 0.8,
+    x: s(0.5), y: s(3.8), w: s(9), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('16 Diving Families at Risk', {
-    x: 0.5, y: 3.9, w: 9, h: 0.6,
+    x: s(0.5), y: s(3.9), w: s(9), h: s(0.6),
     fontSize: 24,
     bold: true,
     color: colors.lightText,
@@ -208,12 +229,12 @@ function createSlide3() {
 
   // Header
   slide.addShape('rect', {
-    x: 0, y: 0, w: 10, h: 0.8,
+    x: s(0), y: s(0), w: s(10), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('Why Traditional Strategies Won\'t Work', {
-    x: 0.5, y: 0.2, w: 9, h: 0.4,
+    x: s(0.5), y: s(0.2), w: s(9), h: s(0.4),
     fontSize: 36,
     bold: true,
     color: colors.lightText
@@ -222,17 +243,17 @@ function createSlide3() {
   // Strategy boxes
   const strategies = [
     {
-      y: 1.1,
+      y: s(1.1),
       title: '✗ Chef Education Programs',
       text: 'Too resource-intensive for small co-op; requires dedicated staff, travel, and years to build relationships'
     },
     {
-      y: 1.9,
+      y: s(1.9),
       title: '✗ Retail Consumer Marketing',
       text: 'Consumers won\'t pay 5X premium for food; price sensitivity too high in commodity market'
     },
     {
-      y: 2.7,
+      y: s(2.7),
       title: '✗ Premium Food Branding',
       text: 'No existing brand equity; would require $60K+ investment in packaging, marketing, distribution without guaranteed ROI'
     }
@@ -240,20 +261,20 @@ function createSlide3() {
 
   strategies.forEach(strategy => {
     slide.addShape('rect', {
-      x: 0.5, y: strategy.y, w: 9, h: 0.7,
+      x: s(0.5), y: strategy.y, w: s(9), h: s(0.7),
       fill: { color: 'ffffff' },
-      line: { color: colors.alertRed, width: 3, type: 'solid' }
+      line: { color: colors.alertRed, width: s(3), type: 'solid' }
     });
 
     slide.addText(strategy.title, {
-      x: 0.7, y: strategy.y + 0.05, w: 8.6, h: 0.25,
+      x: s(0.7), y: strategy.y + 0.05, w: s(8.6), h: s(0.25),
       fontSize: 18,
       bold: true,
       color: colors.oceanBlue
     });
 
     slide.addText(strategy.text, {
-      x: 0.7, y: strategy.y + 0.32, w: 8.6, h: 0.35,
+      x: s(0.7), y: strategy.y + 0.32, w: s(8.6), h: s(0.35),
       fontSize: 15,
       color: colors.darkText
     });
@@ -261,20 +282,20 @@ function createSlide3() {
 
   // Quote box
   slide.addShape('rect', {
-    x: 0.5, y: 3.7, w: 9, h: 0.9,
+    x: s(0.5), y: s(3.7), w: s(9), h: s(0.9),
     fill: { color: 'f8f9fa' },
-    line: { color: colors.seafoamGreen, width: 3, type: 'solid' }
+    line: { color: colors.seafoamGreen, width: s(3), type: 'solid' }
   });
 
   slide.addText('"We\'re a small operation. We can\'t compete with marketing budgets or farming scale. We need a strategy that works with what we have—exceptional wild product and minimal resources."', {
-    x: 0.7, y: 3.8, w: 8.6, h: 0.5,
+    x: s(0.7), y: s(3.8), w: s(8.6), h: s(0.5),
     fontSize: 16,
     italic: true,
     color: colors.darkText
   });
 
   slide.addText('— Charles, CEO', {
-    x: 0.7, y: 4.35, w: 8.6, h: 0.2,
+    x: s(0.7), y: s(4.35), w: s(8.6), h: s(0.2),
     fontSize: 14,
     bold: true,
     color: colors.oceanBlue
@@ -290,12 +311,12 @@ function createSlide4() {
 
   // Header
   slide.addShape('rect', {
-    x: 0, y: 0, w: 10, h: 0.8,
+    x: s(0), y: s(0), w: s(10), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('The Strategic Insight', {
-    x: 0.5, y: 0.2, w: 9, h: 0.4,
+    x: s(0.5), y: s(0.2), w: s(9), h: s(0.4),
     fontSize: 36,
     bold: true,
     color: colors.lightText
@@ -303,33 +324,33 @@ function createSlide4() {
 
   // Insight boxes
   const insights = [
-    { x: 0.5, y: 1.0, icon: '🧬', title: 'Cultural Beliefs Already Exist', text: 'Asian cultures associate abalone with health, virility, and longevity—beliefs embedded for generations' },
-    { x: 5.25, y: 1.0, icon: '🔬', title: 'Lab Testing Opportunity', text: 'Prove wild has 30%+ more beneficial compounds than farmed—collagen, peptides, omega-3s' },
-    { x: 0.5, y: 2.3, icon: '🚫', title: 'Zero Hormones Advantage', text: 'Wild abalone = hormone-free vs. farmed "full of hormones" perception among health-conscious consumers' },
-    { x: 5.25, y: 2.3, icon: '💎', title: 'Category Shift', text: 'Not competing as food ingredient—repositioning as premium beauty/wellness product' }
+    { x: s(0.5), y: s(1.0), icon: '🧬', title: 'Cultural Beliefs Already Exist', text: 'Asian cultures associate abalone with health, virility, and longevity—beliefs embedded for generations' },
+    { x: s(5.25), y: s(1.0), icon: '🔬', title: 'Lab Testing Opportunity', text: 'Prove wild has 30%+ more beneficial compounds than farmed—collagen, peptides, omega-3s' },
+    { x: s(0.5), y: s(2.3), icon: '🚫', title: 'Zero Hormones Advantage', text: 'Wild abalone = hormone-free vs. farmed "full of hormones" perception among health-conscious consumers' },
+    { x: s(5.25), y: s(2.3), icon: '💎', title: 'Category Shift', text: 'Not competing as food ingredient—repositioning as premium beauty/wellness product' }
   ];
 
   insights.forEach(insight => {
     slide.addShape('rect', {
-      x: insight.x, y: insight.y, w: 4.5, h: 1.1,
+      x: insight.x, y: insight.y, w: s(4.5), h: s(1.1),
       fill: { color: 'ffffff' },
-      line: { color: 'e0e0e0', width: 1 }
+      line: { color: 'e0e0e0', width: s(1) }
     });
 
     slide.addText(insight.icon, {
-      x: insight.x + 0.2, y: insight.y + 0.1, w: 0.5, h: 0.3,
+      x: insight.x + 0.2, y: insight.y + 0.1, w: s(0.5), h: s(0.3),
       fontSize: 24
     });
 
     slide.addText(insight.title, {
-      x: insight.x + 0.2, y: insight.y + 0.35, w: 4.1, h: 0.25,
+      x: insight.x + 0.2, y: insight.y + 0.35, w: s(4.1), h: s(0.25),
       fontSize: 17,
       bold: true,
       color: colors.oceanBlue
     });
 
     slide.addText(insight.text, {
-      x: insight.x + 0.2, y: insight.y + 0.62, w: 4.1, h: 0.4,
+      x: insight.x + 0.2, y: insight.y + 0.62, w: s(4.1), h: s(0.4),
       fontSize: 14,
       color: colors.darkText
     });
@@ -337,12 +358,12 @@ function createSlide4() {
 
   // Highlight box
   slide.addShape('rect', {
-    x: 1.0, y: 3.7, w: 8, h: 0.9,
+    x: s(1.0), y: s(3.7), w: s(8), h: s(0.9),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('The Game Changer', {
-    x: 1.0, y: 3.75, w: 8, h: 0.25,
+    x: s(1.0), y: s(3.75), w: s(8), h: s(0.25),
     fontSize: 20,
     bold: true,
     color: colors.goldAccent,
@@ -350,7 +371,7 @@ function createSlide4() {
   });
 
   slide.addText('Stop fighting the food price war.\nStart winning in the beauty category.', {
-    x: 1.0, y: 4.05, w: 8, h: 0.5,
+    x: s(1.0), y: s(4.05), w: s(8), h: s(0.5),
     fontSize: 18,
     color: colors.lightText,
     align: 'center'
@@ -366,12 +387,12 @@ function createSlide5() {
 
   // Header
   slide.addShape('rect', {
-    x: 0, y: 0, w: 10, h: 0.8,
+    x: s(0), y: s(0), w: s(10), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('Market Opportunity', {
-    x: 0.5, y: 0.2, w: 9, h: 0.4,
+    x: s(0.5), y: s(0.2), w: s(9), h: s(0.4),
     fontSize: 36,
     bold: true,
     color: colors.lightText
@@ -379,66 +400,66 @@ function createSlide5() {
 
   // Left column - market stats
   slide.addShape('rect', {
-    x: 0.5, y: 1.0, w: 4.5, h: 0.7,
+    x: s(0.5), y: s(1.0), w: s(4.5), h: s(0.7),
     fill: { color: 'ffffff' },
-    line: { color: colors.goldAccent, width: 3, type: 'solid' }
+    line: { color: colors.goldAccent, width: s(3), type: 'solid' }
   });
 
   slide.addText('$82B', {
-    x: 0.7, y: 1.05, w: 4.1, h: 0.35,
+    x: s(0.7), y: s(1.05), w: s(4.1), h: s(0.35),
     fontSize: 36,
     bold: true,
     color: colors.oceanBlue
   });
 
   slide.addText('Asian Beauty/Wellness Market Size (2024)', {
-    x: 0.7, y: 1.42, w: 4.1, h: 0.2,
+    x: s(0.7), y: s(1.42), w: s(4.1), h: s(0.2),
     fontSize: 14,
     color: colors.darkText
   });
 
   slide.addShape('rect', {
-    x: 0.5, y: 1.85, w: 4.5, h: 0.7,
+    x: s(0.5), y: s(1.85), w: s(4.5), h: s(0.7),
     fill: { color: 'ffffff' },
-    line: { color: colors.goldAccent, width: 3, type: 'solid' }
+    line: { color: colors.goldAccent, width: s(3), type: 'solid' }
   });
 
   slide.addText('12.3%', {
-    x: 0.7, y: 1.9, w: 4.1, h: 0.35,
+    x: s(0.7), y: s(1.9), w: s(4.1), h: s(0.35),
     fontSize: 36,
     bold: true,
     color: colors.oceanBlue
   });
 
   slide.addText('Annual Growth Rate (CAGR)', {
-    x: 0.7, y: 2.27, w: 4.1, h: 0.2,
+    x: s(0.7), y: s(2.27), w: s(4.1), h: s(0.2),
     fontSize: 14,
     color: colors.darkText
   });
 
   // Right column - trends
   const trends = [
-    { y: 1.0, title: '📈 "Eating Your Way to Beauty"', text: 'Collagen drinks, bird\'s nest, pearl powder—ingestible beauty mainstream in Asia' },
-    { y: 2.0, title: '🌿 Clean Beauty Movement', text: 'Hormone-free, wild-sourced, sustainable—exactly our positioning' },
-    { y: 3.0, title: '📱 Influencer-Driven Discovery', text: 'Beauty consumers trust micro-influencers over traditional ads; cost-effective reach' }
+    { y: s(1.0), title: '📈 "Eating Your Way to Beauty"', text: 'Collagen drinks, bird\'s nest, pearl powder—ingestible beauty mainstream in Asia' },
+    { y: s(2.0), title: '🌿 Clean Beauty Movement', text: 'Hormone-free, wild-sourced, sustainable—exactly our positioning' },
+    { y: s(3.0), title: '📱 Influencer-Driven Discovery', text: 'Beauty consumers trust micro-influencers over traditional ads; cost-effective reach' }
   ];
 
   trends.forEach(trend => {
     slide.addShape('rect', {
-      x: 5.25, y: trend.y, w: 4.25, h: 0.85,
+      x: s(5.25), y: trend.y, w: s(4.25), h: s(0.85),
       fill: { color: 'd4edda' },
-      line: { color: colors.successGreen, width: 3, type: 'solid' }
+      line: { color: colors.successGreen, width: s(3), type: 'solid' }
     });
 
     slide.addText(trend.title, {
-      x: 5.45, y: trend.y + 0.1, w: 3.85, h: 0.25,
+      x: s(5.45), y: trend.y + 0.1, w: s(3.85), h: s(0.25),
       fontSize: 16,
       bold: true,
       color: '155724'
     });
 
     slide.addText(trend.text, {
-      x: 5.45, y: trend.y + 0.38, w: 3.85, h: 0.4,
+      x: s(5.45), y: trend.y + 0.38, w: s(3.85), h: s(0.4),
       fontSize: 13,
       color: '155724'
     });
@@ -454,12 +475,12 @@ function createSlide6() {
 
   // Header
   slide.addShape('rect', {
-    x: 0, y: 0, w: 10, h: 0.75,
+    x: s(0), y: s(0), w: s(10), h: s(0.75),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('The Stage-Gate Strategy Overview', {
-    x: 0.5, y: 0.18, w: 9, h: 0.4,
+    x: s(0.5), y: s(0.18), w: s(9), h: s(0.4),
     fontSize: 34,
     bold: true,
     color: colors.lightText
@@ -467,36 +488,36 @@ function createSlide6() {
 
   // Gate boxes
   const gates = [
-    { y: 0.95, gate: 'Gate 1: Lab Testing', desc: 'Test wild vs farmed for beneficial compounds & hormones', investment: '$15-25K' },
-    { y: 1.65, gate: 'Gate 2: Legal Review', desc: 'Validate permissible claims in target markets', investment: '$5-10K' },
-    { y: 2.35, gate: 'Gate 3: Micro-Influencer Test', desc: '5-8 influencers, measure engagement & sentiment', investment: '$10-15K' },
-    { y: 3.05, gate: 'Gate 4: Limited Launch', desc: '5K-10K units, premium line, mid-tier influencers', investment: '$30-50K' },
-    { y: 3.75, gate: 'Gate 5: Scale & Sustain', desc: 'Multi-market expansion, major influencers, retail partners', investment: '$50-100K' }
+    { y: s(0.95), gate: 'Gate 1: Lab Testing', desc: 'Test wild vs farmed for beneficial compounds & hormones', investment: '$15-25K' },
+    { y: s(1.65), gate: 'Gate 2: Legal Review', desc: 'Validate permissible claims in target markets', investment: '$5-10K' },
+    { y: s(2.35), gate: 'Gate 3: Micro-Influencer Test', desc: '5-8 influencers, measure engagement & sentiment', investment: '$10-15K' },
+    { y: s(3.05), gate: 'Gate 4: Limited Launch', desc: '5K-10K units, premium line, mid-tier influencers', investment: '$30-50K' },
+    { y: s(3.75), gate: 'Gate 5: Scale & Sustain', desc: 'Multi-market expansion, major influencers, retail partners', investment: '$50-100K' }
   ];
 
   gates.forEach((gate, index) => {
     // Gate box
     slide.addShape('rect', {
-      x: 0.5, y: gate.y, w: 6.5, h: 0.6,
+      x: s(0.5), y: gate.y, w: s(6.5), h: s(0.6),
       fill: { color: 'ffffff' },
-      line: { color: colors.oceanBlue, width: 2 }
+      line: { color: colors.oceanBlue, width: s(2) }
     });
 
     slide.addText(gate.gate, {
-      x: 0.65, y: gate.y + 0.05, w: 4.5, h: 0.2,
+      x: s(0.65), y: gate.y + 0.05, w: s(4.5), h: s(0.2),
       fontSize: 16,
       bold: true,
       color: colors.oceanBlue
     });
 
     slide.addText(gate.desc, {
-      x: 0.65, y: gate.y + 0.27, w: 4.5, h: 0.15,
+      x: s(0.65), y: gate.y + 0.27, w: s(4.5), h: s(0.15),
       fontSize: 12,
       color: colors.darkText
     });
 
     slide.addText(gate.investment, {
-      x: 0.65, y: gate.y + 0.44, w: 4.5, h: 0.12,
+      x: s(0.65), y: gate.y + 0.44, w: s(4.5), h: s(0.12),
       fontSize: 14,
       bold: true,
       color: colors.goldAccent
@@ -504,12 +525,12 @@ function createSlide6() {
 
     // GO/NO-GO badge
     slide.addShape('rect', {
-      x: 5.8, y: gate.y + 0.2, w: 1.0, h: 0.2,
+      x: s(5.8), y: gate.y + 0.2, w: s(1.0), h: s(0.2),
       fill: { color: colors.seafoamGreen }
     });
 
     slide.addText('GO/NO-GO', {
-      x: 5.8, y: gate.y + 0.2, w: 1.0, h: 0.2,
+      x: s(5.8), y: gate.y + 0.2, w: s(1.0), h: s(0.2),
       fontSize: 10,
       bold: true,
       color: 'ffffff',
@@ -520,7 +541,7 @@ function createSlide6() {
     // Arrow (except after last gate)
     if (index < gates.length - 1) {
       slide.addText('▼', {
-        x: 3.2, y: gate.y + 0.62, w: 0.6, h: 0.25,
+        x: s(3.2), y: gate.y + 0.62, w: s(0.6), h: s(0.25),
         fontSize: 20,
         color: colors.seafoamGreen,
         align: 'center'
@@ -530,19 +551,19 @@ function createSlide6() {
 
   // Total investment box
   slide.addShape('rect', {
-    x: 7.2, y: 1.0, w: 2.3, h: 0.8,
+    x: s(7.2), y: s(1.0), w: s(2.3), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('Total Investment', {
-    x: 7.2, y: 1.05, w: 2.3, h: 0.25,
+    x: s(7.2), y: s(1.05), w: s(2.3), h: s(0.25),
     fontSize: 14,
     color: colors.seafoamGreen,
     align: 'center'
   });
 
   slide.addText('$110-200K', {
-    x: 7.2, y: 1.32, w: 2.3, h: 0.4,
+    x: s(7.2), y: s(1.32), w: s(2.3), h: s(0.4),
     fontSize: 24,
     bold: true,
     color: colors.goldAccent,
@@ -560,19 +581,19 @@ function createSlide7() {
   slide.background = { fill: colors.pearlWhite };
 
   slide.addShape('rect', {
-    x: 0, y: 0, w: 10, h: 0.8,
+    x: s(0), y: s(0), w: s(10), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('Gate 1: Lab Testing (Detail)', {
-    x: 0.5, y: 0.2, w: 9, h: 0.4,
+    x: s(0.5), y: s(0.2), w: s(9), h: s(0.4),
     fontSize: 36,
     bold: true,
     color: colors.lightText
   });
 
   slide.addText('Test Wild vs Farmed For:', {
-    x: 0.5, y: 1.0, w: 4.5, h: 0.3,
+    x: s(0.5), y: s(1.0), w: s(4.5), h: s(0.3),
     fontSize: 20,
     bold: true,
     color: colors.oceanBlue
@@ -587,7 +608,7 @@ function createSlide7() {
 
   tests.forEach((test, i) => {
     slide.addText('▸ ' + test, {
-      x: 0.7, y: 1.4 + (i * 0.4), w: 4, h: 0.35,
+      x: s(0.7), y: s(1.4) + (i * 0.4), w: s(4), h: s(0.35),
       fontSize: 14,
       color: colors.darkText
     });
@@ -595,27 +616,27 @@ function createSlide7() {
 
   // Success criteria
   slide.addShape('rect', {
-    x: 5.25, y: 1.0, w: 4.25, h: 1.2,
+    x: s(5.25), y: s(1.0), w: s(4.25), h: s(1.2),
     fill: { color: 'd4edda' },
-    line: { color: colors.successGreen, width: 2 }
+    line: { color: colors.successGreen, width: s(2) }
   });
 
   slide.addText('Success Criteria (GO Decision)', {
-    x: 5.45, y: 1.1, w: 3.85, h: 0.25,
+    x: s(5.45), y: s(1.1), w: s(3.85), h: s(0.25),
     fontSize: 17,
     bold: true,
     color: '155724'
   });
 
   slide.addText('✓ ≥30% higher beneficial compounds\n✓ Zero detectable hormones\n✓ Results from certified lab', {
-    x: 5.45, y: 1.4, w: 3.85, h: 0.7,
+    x: s(5.45), y: s(1.4), w: s(3.85), h: s(0.7),
     fontSize: 14,
     color: '155724'
   });
 
   // Investment details
   slide.addText('Timeline: 6-8 Weeks\nInvestment: $15,000 - $25,000', {
-    x: 5.45, y: 2.5, w: 3.85, h: 0.5,
+    x: s(5.45), y: s(2.5), w: s(3.85), h: s(0.5),
     fontSize: 16,
     bold: true,
     color: colors.oceanBlue
@@ -629,12 +650,12 @@ function createSlide8() {
   slide.background = { fill: colors.pearlWhite };
 
   slide.addShape('rect', {
-    x: 0, y: 0, w: 10, h: 0.8,
+    x: s(0), y: s(0), w: s(10), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('Gates 2-3: Legal Review & Testing', {
-    x: 0.5, y: 0.2, w: 9, h: 0.4,
+    x: s(0.5), y: s(0.2), w: s(9), h: s(0.4),
     fontSize: 36,
     bold: true,
     color: colors.lightText
@@ -642,40 +663,40 @@ function createSlide8() {
 
   // Gate 2
   slide.addShape('rect', {
-    x: 0.5, y: 1.0, w: 9, h: 1.5,
+    x: s(0.5), y: s(1.0), w: s(9), h: s(1.5),
     fill: { color: 'ffffff' },
-    line: { color: colors.oceanBlue, width: 2 }
+    line: { color: colors.oceanBlue, width: s(2) }
   });
 
   slide.addText('Gate 2: Legal Review', {
-    x: 0.7, y: 1.1, w: 8.6, h: 0.3,
+    x: s(0.7), y: s(1.1), w: s(8.6), h: s(0.3),
     fontSize: 22,
     bold: true,
     color: colors.oceanBlue
   });
 
   slide.addText('▸ Determine permissible claims in Singapore, Malaysia, Hong Kong\n▸ Approved claim language for packaging and marketing\n▸ Market-specific compliance requirements\n\nTimeline: 4-6 Weeks  |  Investment: $5-10K', {
-    x: 0.7, y: 1.45, w: 6, h: 0.95,
+    x: s(0.7), y: s(1.45), w: s(6), h: s(0.95),
     fontSize: 14,
     color: colors.darkText
   });
 
   // Gate 3
   slide.addShape('rect', {
-    x: 0.5, y: 2.7, w: 9, h: 1.7,
+    x: s(0.5), y: s(2.7), w: s(9), h: s(1.7),
     fill: { color: 'ffffff' },
-    line: { color: colors.oceanBlue, width: 2 }
+    line: { color: colors.oceanBlue, width: s(2) }
   });
 
   slide.addText('Gate 3: Micro-Influencer Test', {
-    x: 0.7, y: 2.8, w: 8.6, h: 0.3,
+    x: s(0.7), y: s(2.8), w: s(8.6), h: s(0.3),
     fontSize: 22,
     bold: true,
     color: colors.oceanBlue
   });
 
   slide.addText('▸ Partner with 5-8 micro-influencers (50K-150K followers)\n▸ Success: >5% engagement rate\n▸ Success: >80% positive sentiment\n▸ Validated messaging resonance\n\nTimeline: 6-10 Weeks  |  Investment: $10-15K', {
-    x: 0.7, y: 3.15, w: 6, h: 1.15,
+    x: s(0.7), y: s(3.15), w: s(6), h: s(1.15),
     fontSize: 14,
     color: colors.darkText
   });
@@ -688,12 +709,12 @@ function createSlide9() {
   slide.background = { fill: colors.pearlWhite };
 
   slide.addShape('rect', {
-    x: 0, y: 0, w: 10, h: 0.8,
+    x: s(0), y: s(0), w: s(10), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('Gate 4: Limited Launch', {
-    x: 0.5, y: 0.2, w: 9, h: 0.4,
+    x: s(0.5), y: s(0.2), w: s(9), h: s(0.4),
     fontSize: 36,
     bold: true,
     color: colors.lightText
@@ -701,12 +722,12 @@ function createSlide9() {
 
   // Product name highlight
   slide.addShape('rect', {
-    x: 1.5, y: 1.0, w: 7, h: 0.7,
+    x: s(1.5), y: s(1.0), w: s(7), h: s(0.7),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('Mallacoota Beauty Reserve', {
-    x: 1.5, y: 1.1, w: 7, h: 0.35,
+    x: s(1.5), y: s(1.1), w: s(7), h: s(0.35),
     fontSize: 28,
     bold: true,
     color: colors.goldAccent,
@@ -714,7 +735,7 @@ function createSlide9() {
   });
 
   slide.addText('Premium Wild Abalone for Beauty & Wellness', {
-    x: 1.5, y: 1.45, w: 7, h: 0.2,
+    x: s(1.5), y: s(1.45), w: s(7), h: s(0.2),
     fontSize: 16,
     italic: true,
     color: colors.seafoamGreen,
@@ -723,7 +744,7 @@ function createSlide9() {
 
   // Details
   slide.addText('Product Launch:\n5,000-10,000 units at $60-80 per can\n\nMarketing Strategy:\n15-20 mid-tier influencers (150K-500K followers)\n\nDistribution:\nE-commerce direct to consumer\n\nSuccess Criteria:\n70% sell-through in 3 months\n\nInvestment: $30-50K', {
-    x: 0.7, y: 2.0, w: 8.6, h: 2.4,
+    x: s(0.7), y: s(2.0), w: s(8.6), h: s(2.4),
     fontSize: 16,
     color: colors.darkText,
     lineSpacing: 20
@@ -737,12 +758,12 @@ function createSlide10() {
   slide.background = { fill: colors.pearlWhite };
 
   slide.addShape('rect', {
-    x: 0, y: 0, w: 10, h: 0.8,
+    x: s(0), y: s(0), w: s(10), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('Gate 5: Scale & Sustain', {
-    x: 0.5, y: 0.2, w: 9, h: 0.4,
+    x: s(0.5), y: s(0.2), w: s(9), h: s(0.4),
     fontSize: 36,
     bold: true,
     color: colors.lightText
@@ -757,14 +778,14 @@ function createSlide10() {
 
   strategies.forEach((strat, i) => {
     slide.addText(strat.icon + ' ' + strat.title, {
-      x: 0.7, y: 1.1 + (i * 0.6), w: 8.6, h: 0.25,
+      x: s(0.7), y: s(1.1) + (i * 0.6), w: s(8.6), h: s(0.25),
       fontSize: 18,
       bold: true,
       color: colors.oceanBlue
     });
 
     slide.addText(strat.text, {
-      x: 0.7, y: 1.37 + (i * 0.6), w: 8.6, h: 0.2,
+      x: s(0.7), y: s(1.37) + (i * 0.6), w: s(8.6), h: s(0.2),
       fontSize: 14,
       color: colors.darkText
     });
@@ -772,12 +793,12 @@ function createSlide10() {
 
   // Target
   slide.addShape('rect', {
-    x: 2.5, y: 3.0, w: 5, h: 0.9,
+    x: s(2.5), y: s(3.0), w: s(5), h: s(0.9),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('Revenue Target: 20-30%', {
-    x: 2.5, y: 3.1, w: 5, h: 0.3,
+    x: s(2.5), y: s(3.1), w: s(5), h: s(0.3),
     fontSize: 28,
     bold: true,
     color: colors.goldAccent,
@@ -785,14 +806,14 @@ function createSlide10() {
   });
 
   slide.addText('of total revenue from premium beauty line', {
-    x: 2.5, y: 3.45, w: 5, h: 0.25,
+    x: s(2.5), y: s(3.45), w: s(5), h: s(0.25),
     fontSize: 14,
     color: colors.lightText,
     align: 'center'
   });
 
   slide.addText('Annual Investment: $50-100K', {
-    x: 2.5, y: 4.1, w: 5, h: 0.3,
+    x: s(2.5), y: s(4.1), w: s(5), h: s(0.3),
     fontSize: 18,
     bold: true,
     color: colors.goldAccent,
@@ -807,12 +828,12 @@ function createSlide11() {
   slide.background = { fill: colors.pearlWhite };
 
   slide.addShape('rect', {
-    x: 0, y: 0, w: 10, h: 0.8,
+    x: s(0), y: s(0), w: s(10), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('Messaging Framework', {
-    x: 0.5, y: 0.2, w: 9, h: 0.4,
+    x: s(0.5), y: s(0.2), w: s(9), h: s(0.4),
     fontSize: 36,
     bold: true,
     color: colors.lightText
@@ -820,20 +841,20 @@ function createSlide11() {
 
   // Core message
   slide.addShape('rect', {
-    x: 1.0, y: 1.0, w: 8, h: 0.8,
+    x: s(1.0), y: s(1.0), w: s(8), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue },
-    line: { color: colors.goldAccent, width: 3 }
+    line: { color: colors.goldAccent, width: s(3) }
   });
 
   slide.addText('CORE MESSAGE', {
-    x: 1.0, y: 1.05, w: 8, h: 0.2,
+    x: s(1.0), y: s(1.05), w: s(8), h: s(0.2),
     fontSize: 14,
     color: colors.seafoamGreen,
     align: 'center'
   });
 
   slide.addText('"Beauty from the 40°S\nSouthern Ocean Reserve"', {
-    x: 1.0, y: 1.3, w: 8, h: 0.45,
+    x: s(1.0), y: s(1.3), w: s(8), h: s(0.45),
     fontSize: 26,
     bold: true,
     color: colors.goldAccent,
@@ -842,28 +863,28 @@ function createSlide11() {
 
   // Four pillars
   const pillars = [
-    { x: 0.5, y: 2.0, icon: '🌊', title: 'Purity', text: 'Zero hormones, pristine Southern Ocean, UNESCO reserve' },
-    { x: 5.0, y: 2.0, icon: '💪', title: 'Potency', text: 'Lab-tested [X%] more collagen, peptides, omega-3s' },
-    { x: 0.5, y: 3.0, icon: '🏛️', title: 'Provenance', text: '56-year heritage, 16 families, EX1191 license' },
-    { x: 5.0, y: 3.0, icon: '🔬', title: 'Proven', text: 'Scientific validation of traditional beliefs' }
+    { x: s(0.5), y: s(2.0), icon: '🌊', title: 'Purity', text: 'Zero hormones, pristine Southern Ocean, UNESCO reserve' },
+    { x: s(5.0), y: s(2.0), icon: '💪', title: 'Potency', text: 'Lab-tested [X%] more collagen, peptides, omega-3s' },
+    { x: s(0.5), y: s(3.0), icon: '🏛️', title: 'Provenance', text: '56-year heritage, 16 families, EX1191 license' },
+    { x: s(5.0), y: s(3.0), icon: '🔬', title: 'Proven', text: 'Scientific validation of traditional beliefs' }
   ];
 
   pillars.forEach(pillar => {
     slide.addShape('rect', {
-      x: pillar.x, y: pillar.y, w: 4.25, h: 0.8,
+      x: pillar.x, y: pillar.y, w: s(4.25), h: s(0.8),
       fill: { color: 'ffffff' },
-      line: { color: colors.seafoamGreen, width: 2 }
+      line: { color: colors.seafoamGreen, width: s(2) }
     });
 
     slide.addText(pillar.icon + ' ' + pillar.title, {
-      x: pillar.x + 0.2, y: pillar.y + 0.1, w: 3.85, h: 0.25,
+      x: pillar.x + 0.2, y: pillar.y + 0.1, w: s(3.85), h: s(0.25),
       fontSize: 18,
       bold: true,
       color: colors.oceanBlue
     });
 
     slide.addText(pillar.text, {
-      x: pillar.x + 0.2, y: pillar.y + 0.38, w: 3.85, h: 0.35,
+      x: pillar.x + 0.2, y: pillar.y + 0.38, w: s(3.85), h: s(0.35),
       fontSize: 13,
       color: colors.darkText
     });
@@ -871,12 +892,12 @@ function createSlide11() {
 
   // Tagline
   slide.addShape('rect', {
-    x: 2.0, y: 4.0, w: 6, h: 0.6,
+    x: s(2.0), y: s(4.0), w: s(6), h: s(0.6),
     fill: { color: colors.goldAccent }
   });
 
   slide.addText('Pure. Wild. Proven.', {
-    x: 2.0, y: 4.1, w: 6, h: 0.4,
+    x: s(2.0), y: s(4.1), w: s(6), h: s(0.4),
     fontSize: 32,
     bold: true,
     color: 'ffffff',
@@ -892,12 +913,12 @@ function createSlide12() {
   slide.background = { fill: colors.pearlWhite };
 
   slide.addShape('rect', {
-    x: 0, y: 0, w: 10, h: 0.8,
+    x: s(0), y: s(0), w: s(10), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('Financial Projections', {
-    x: 0.5, y: 0.2, w: 9, h: 0.4,
+    x: s(0.5), y: s(0.2), w: s(9), h: s(0.4),
     fontSize: 36,
     bold: true,
     color: colors.lightText
@@ -905,20 +926,20 @@ function createSlide12() {
 
   // Table header
   slide.addShape('rect', {
-    x: 0.5, y: 1.0, w: 9, h: 0.4,
+    x: s(0.5), y: s(1.0), w: s(9), h: s(0.4),
     fill: { color: colors.oceanBlue }
   });
 
   const headers = [
-    { text: 'Year', x: 0.6, w: 1 },
-    { text: 'Revenue', x: 2.0, w: 2.5 },
-    { text: 'Units Sold', x: 4.8, w: 2 },
-    { text: 'Gross Margin', x: 7.1, w: 2 }
+    { text: 'Year', x: s(0.6), w: s(1) },
+    { text: 'Revenue', x: s(2.0), w: s(2.5) },
+    { text: 'Units Sold', x: s(4.8), w: s(2) },
+    { text: 'Gross Margin', x: s(7.1), w: s(2) }
   ];
 
   headers.forEach(h => {
     slide.addText(h.text, {
-      x: h.x, y: 1.1, w: h.w, h: 0.2,
+      x: h.x, y: s(1.1), w: h.w, h: s(0.2),
       fontSize: 14,
       bold: true,
       color: colors.lightText
@@ -927,34 +948,34 @@ function createSlide12() {
 
   // Table rows
   const rows = [
-    { year: 'Year 1', revenue: '$1.2-1.8M', units: '20-30K units', margin: '60%', y: 1.5 },
-    { year: 'Year 2', revenue: '$3-5M', units: '50-80K units', margin: '60%', y: 2.0 },
-    { year: 'Year 3', revenue: '$6-10M', units: '100-150K units', margin: '60%', y: 2.5 }
+    { year: 'Year 1', revenue: '$1.2-1.8M', units: '20-30K units', margin: '60%', y: s(1.5) },
+    { year: 'Year 2', revenue: '$3-5M', units: '50-80K units', margin: '60%', y: s(2.0) },
+    { year: 'Year 3', revenue: '$6-10M', units: '100-150K units', margin: '60%', y: s(2.5) }
   ];
 
   rows.forEach(row => {
     slide.addText(row.year, {
-      x: 0.6, y: row.y, w: 1, h: 0.3,
+      x: s(0.6), y: row.y, w: s(1), h: s(0.3),
       fontSize: 14,
       bold: true,
       color: colors.oceanBlue
     });
 
     slide.addText(row.revenue, {
-      x: 2.0, y: row.y, w: 2.5, h: 0.3,
+      x: s(2.0), y: row.y, w: s(2.5), h: s(0.3),
       fontSize: 18,
       bold: true,
       color: colors.successGreen
     });
 
     slide.addText(row.units, {
-      x: 4.8, y: row.y, w: 2, h: 0.3,
+      x: s(4.8), y: row.y, w: s(2), h: s(0.3),
       fontSize: 14,
       color: colors.darkText
     });
 
     slide.addText(row.margin, {
-      x: 7.1, y: row.y, w: 2, h: 0.3,
+      x: s(7.1), y: row.y, w: s(2), h: s(0.3),
       fontSize: 14,
       color: colors.darkText
     });
@@ -962,19 +983,19 @@ function createSlide12() {
 
   // ROI box
   slide.addShape('rect', {
-    x: 5.5, y: 3.2, w: 4, h: 1.2,
+    x: s(5.5), y: s(3.2), w: s(4), h: s(1.2),
     fill: { color: colors.goldAccent }
   });
 
   slide.addText('3-Year ROI', {
-    x: 5.5, y: 3.3, w: 4, h: 0.25,
+    x: s(5.5), y: s(3.3), w: s(4), h: s(0.25),
     fontSize: 16,
     color: 'ffffff',
     align: 'center'
   });
 
   slide.addText('1,800-3,173%', {
-    x: 5.5, y: 3.6, w: 4, h: 0.5,
+    x: s(5.5), y: s(3.6), w: s(4), h: s(0.5),
     fontSize: 32,
     bold: true,
     color: 'ffffff',
@@ -982,7 +1003,7 @@ function createSlide12() {
   });
 
   slide.addText('On $110-200K total investment', {
-    x: 5.5, y: 4.15, w: 4, h: 0.2,
+    x: s(5.5), y: s(4.15), w: s(4), h: s(0.2),
     fontSize: 13,
     color: 'ffffff',
     align: 'center'
@@ -990,7 +1011,7 @@ function createSlide12() {
 
   // Margin comparison
   slide.addText('Beauty Line Margin: 60%\nvs\nCommodity Margin: 30-40%', {
-    x: 0.7, y: 3.3, w: 4, h: 0.8,
+    x: s(0.7), y: s(3.3), w: s(4), h: s(0.8),
     fontSize: 16,
     bold: true,
     color: colors.oceanBlue
@@ -1004,12 +1025,12 @@ function createSlide13() {
   slide.background = { fill: colors.pearlWhite };
 
   slide.addShape('rect', {
-    x: 0, y: 0, w: 10, h: 0.8,
+    x: s(0), y: s(0), w: s(10), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('Risk Management', {
-    x: 0.5, y: 0.2, w: 9, h: 0.4,
+    x: s(0.5), y: s(0.2), w: s(9), h: s(0.4),
     fontSize: 36,
     bold: true,
     color: colors.lightText
@@ -1017,21 +1038,21 @@ function createSlide13() {
 
   // Key points
   slide.addText('🛡️ Gate System Minimizes Exposure', {
-    x: 0.7, y: 1.0, w: 8.6, h: 0.3,
+    x: s(0.7), y: s(1.0), w: s(8.6), h: s(0.3),
     fontSize: 20,
     bold: true,
     color: colors.oceanBlue
   });
 
   slide.addText('Clear GO/NO-GO decision points mean you never commit to the full strategy upfront. Exit at any stage with controlled, predictable losses.', {
-    x: 0.7, y: 1.35, w: 8.6, h: 0.4,
+    x: s(0.7), y: s(1.35), w: s(8.6), h: s(0.4),
     fontSize: 15,
     color: colors.darkText
   });
 
   // Gate risks
   slide.addText('Maximum Risk per Gate:', {
-    x: 0.7, y: 1.9, w: 8.6, h: 0.25,
+    x: s(0.7), y: s(1.9), w: s(8.6), h: s(0.25),
     fontSize: 18,
     bold: true,
     color: colors.oceanBlue
@@ -1047,7 +1068,7 @@ function createSlide13() {
 
   gateRisks.forEach((risk, i) => {
     slide.addText(risk, {
-      x: 1.0 + (i % 3) * 2.8, y: 2.25 + Math.floor(i / 3) * 0.4, w: 2.5, h: 0.3,
+      x: s(1.0) + (i % 3) * 2.8, y: s(2.25) + Math.floor(i / 3) * 0.4, w: s(2.5), h: s(0.3),
       fontSize: 16,
       bold: true,
       color: colors.goldAccent
@@ -1056,13 +1077,13 @@ function createSlide13() {
 
   // Exit strategy highlight
   slide.addShape('rect', {
-    x: 0.7, y: 3.2, w: 8.6, h: 0.7,
+    x: s(0.7), y: s(3.2), w: s(8.6), h: s(0.7),
     fill: { color: 'fff3cd' },
-    line: { color: 'ffc107', width: 2 }
+    line: { color: 'ffc107', width: s(2) }
   });
 
   slide.addText('Exit Anytime with Controlled Losses\nIf lab results fail: out $25K max. If influencer test fails: out $50K total.\nCompare to status quo: losing $6M annually with no plan.', {
-    x: 0.9, y: 3.3, w: 8.2, h: 0.5,
+    x: s(0.9), y: s(3.3), w: s(8.2), h: s(0.5),
     fontSize: 15,
     color: '856404',
     align: 'center'
@@ -1070,12 +1091,12 @@ function createSlide13() {
 
   // Probability-adjusted ROI
   slide.addShape('rect', {
-    x: 2.5, y: 4.1, w: 5, h: 0.5,
+    x: s(2.5), y: s(4.1), w: s(5), h: s(0.5),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('Probability-Adjusted ROI: 378%', {
-    x: 2.5, y: 4.2, w: 5, h: 0.3,
+    x: s(2.5), y: s(4.2), w: s(5), h: s(0.3),
     fontSize: 22,
     bold: true,
     color: colors.goldAccent,
@@ -1090,12 +1111,12 @@ function createSlide14() {
   slide.background = { fill: colors.pearlWhite };
 
   slide.addShape('rect', {
-    x: 0, y: 0, w: 10, h: 0.8,
+    x: s(0), y: s(0), w: s(10), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('Implementation Timeline', {
-    x: 0.5, y: 0.2, w: 9, h: 0.4,
+    x: s(0.5), y: s(0.2), w: s(9), h: s(0.4),
     fontSize: 36,
     bold: true,
     color: colors.lightText
@@ -1103,43 +1124,43 @@ function createSlide14() {
 
   // Timeline items
   const timeline = [
-    { period: 'Months 1-2', title: 'Research & Legal [GATE 1-2]', desc: 'Lab testing, legal review. Investment: $20-35K', y: 1.1 },
-    { period: 'Months 3-4', title: 'Content Testing [GATE 3]', desc: 'Micro-influencer partnerships. Investment: $10-15K', y: 2.0 },
-    { period: 'Months 5-7', title: 'Limited Launch [GATE 4]', desc: 'Premium product, 5K-10K units. Investment: $30-50K', y: 2.9 },
-    { period: 'Months 8-12', title: 'Scale & Expand [GATE 5]', desc: 'Multi-market, macro-influencers. Investment: $50-100K', y: 3.8 }
+    { period: 'Months 1-2', title: 'Research & Legal [GATE 1-2]', desc: 'Lab testing, legal review. Investment: $20-35K', y: s(1.1) },
+    { period: 'Months 3-4', title: 'Content Testing [GATE 3]', desc: 'Micro-influencer partnerships. Investment: $10-15K', y: s(2.0) },
+    { period: 'Months 5-7', title: 'Limited Launch [GATE 4]', desc: 'Premium product, 5K-10K units. Investment: $30-50K', y: s(2.9) },
+    { period: 'Months 8-12', title: 'Scale & Expand [GATE 5]', desc: 'Multi-market, macro-influencers. Investment: $50-100K', y: s(3.8) }
   ];
 
   timeline.forEach(item => {
     // Timeline dot
     slide.addShape('ellipse', {
-      x: 0.7, y: item.y, w: 0.3, h: 0.3,
+      x: s(0.7), y: item.y, w: s(0.3), h: s(0.3),
       fill: { color: colors.goldAccent },
-      line: { color: 'ffffff', width: 2 }
+      line: { color: 'ffffff', width: s(2) }
     });
 
     // Content box
     slide.addShape('rect', {
-      x: 1.2, y: item.y - 0.05, w: 8.3, h: 0.7,
+      x: s(1.2), y: item.y - 0.05, w: s(8.3), h: s(0.7),
       fill: { color: 'ffffff' },
-      line: { color: colors.oceanBlue, width: 2 }
+      line: { color: colors.oceanBlue, width: s(2) }
     });
 
     slide.addText(item.period, {
-      x: 1.4, y: item.y, w: 2, h: 0.2,
+      x: s(1.4), y: item.y, w: s(2), h: s(0.2),
       fontSize: 13,
       bold: true,
       color: colors.goldAccent
     });
 
     slide.addText(item.title, {
-      x: 1.4, y: item.y + 0.22, w: 7.9, h: 0.2,
+      x: s(1.4), y: item.y + 0.22, w: s(7.9), h: s(0.2),
       fontSize: 16,
       bold: true,
       color: colors.oceanBlue
     });
 
     slide.addText(item.desc, {
-      x: 1.4, y: item.y + 0.44, w: 7.9, h: 0.15,
+      x: s(1.4), y: item.y + 0.44, w: s(7.9), h: s(0.15),
       fontSize: 12,
       color: colors.darkText
     });
@@ -1147,12 +1168,12 @@ function createSlide14() {
 
   // Key milestone
   slide.addShape('rect', {
-    x: 1.5, y: 4.7, w: 7, h: 0.3,
+    x: s(1.5), y: s(4.7), w: s(7), h: s(0.3),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('First GO/NO-GO Decision in 8 Weeks — Lab results determine next step', {
-    x: 1.5, y: 4.75, w: 7, h: 0.2,
+    x: s(1.5), y: s(4.75), w: s(7), h: s(0.2),
     fontSize: 14,
     color: colors.goldAccent,
     align: 'center'
@@ -1166,12 +1187,12 @@ function createSlide15() {
   slide.background = { fill: colors.pearlWhite };
 
   slide.addShape('rect', {
-    x: 0, y: 0, w: 10, h: 0.8,
+    x: s(0), y: s(0), w: s(10), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('Why This Strategy Works', {
-    x: 0.5, y: 0.2, w: 9, h: 0.4,
+    x: s(0.5), y: s(0.2), w: s(9), h: s(0.4),
     fontSize: 36,
     bold: true,
     color: colors.lightText
@@ -1192,20 +1213,20 @@ function createSlide15() {
     const y = 1.0 + Math.floor(i / 2) * 0.7;
 
     slide.addShape('rect', {
-      x: x, y: y, w: 4.5, h: 0.6,
+      x: x, y: y, w: s(4.5), h: s(0.6),
       fill: { color: 'ffffff' },
-      line: { color: colors.goldAccent, width: 2 }
+      line: { color: colors.goldAccent, width: s(2) }
     });
 
     slide.addText(reason.icon + ' ' + reason.title, {
-      x: x + 0.2, y: y + 0.08, w: 4.1, h: 0.22,
+      x: x + 0.2, y: y + 0.08, w: s(4.1), h: s(0.22),
       fontSize: 16,
       bold: true,
       color: colors.oceanBlue
     });
 
     slide.addText(reason.text, {
-      x: x + 0.2, y: y + 0.32, w: 4.1, h: 0.2,
+      x: x + 0.2, y: y + 0.32, w: s(4.1), h: s(0.2),
       fontSize: 13,
       color: colors.darkText
     });
@@ -1213,13 +1234,13 @@ function createSlide15() {
 
   // Summary
   slide.addShape('rect', {
-    x: 1.0, y: 3.4, w: 8, h: 0.9,
+    x: s(1.0), y: s(3.4), w: s(8), h: s(0.9),
     fill: { type: 'solid', color: colors.oceanBlue },
-    line: { color: colors.goldAccent, width: 2 }
+    line: { color: colors.goldAccent, width: s(2) }
   });
 
   slide.addText('The Bottom Line', {
-    x: 1.0, y: 3.5, w: 8, h: 0.25,
+    x: s(1.0), y: s(3.5), w: s(8), h: s(0.25),
     fontSize: 20,
     bold: true,
     color: colors.goldAccent,
@@ -1227,7 +1248,7 @@ function createSlide15() {
   });
 
   slide.addText('This isn\'t a risky bet—it\'s the logical evolution of our business.\nWe\'re using what we have to reach who\'s buying, in a category where we can win.', {
-    x: 1.0, y: 3.8, w: 8, h: 0.4,
+    x: s(1.0), y: s(3.8), w: s(8), h: s(0.4),
     fontSize: 16,
     color: colors.lightText,
     align: 'center'
@@ -1241,12 +1262,12 @@ function createSlide16() {
   slide.background = { fill: colors.pearlWhite };
 
   slide.addShape('rect', {
-    x: 0, y: 0, w: 10, h: 0.8,
+    x: s(0), y: s(0), w: s(10), h: s(0.8),
     fill: { type: 'solid', color: colors.oceanBlue }
   });
 
   slide.addText('Immediate Next Steps', {
-    x: 0.5, y: 0.2, w: 9, h: 0.4,
+    x: s(0.5), y: s(0.2), w: s(9), h: s(0.4),
     fontSize: 36,
     bold: true,
     color: colors.lightText
@@ -1254,22 +1275,22 @@ function createSlide16() {
 
   // Steps
   const steps = [
-    { num: '1', title: 'Board Approval for Gate 1', timeline: 'Week 1', desc: 'Secure $15-25K investment approval', y: 1.1 },
-    { num: '2', title: 'Select Independent Lab', timeline: 'Weeks 1-2', desc: 'Identify certified lab for marine product analysis', y: 1.8 },
-    { num: '3', title: 'Collect Samples', timeline: 'Week 3', desc: 'Gather wild and farmed comparison samples', y: 2.5 },
-    { num: '4', title: 'Begin Testing', timeline: 'Weeks 4-10', desc: 'Comprehensive compound and hormone analysis', y: 3.2 },
-    { num: '5', title: 'First GO/NO-GO Decision', timeline: 'Week 10', desc: 'Review results: Proceed or exit with minimal loss', y: 3.9 }
+    { num: '1', title: 'Board Approval for Gate 1', timeline: 'Week 1', desc: 'Secure $15-25K investment approval', y: s(1.1) },
+    { num: '2', title: 'Select Independent Lab', timeline: 'Weeks 1-2', desc: 'Identify certified lab for marine product analysis', y: s(1.8) },
+    { num: '3', title: 'Collect Samples', timeline: 'Week 3', desc: 'Gather wild and farmed comparison samples', y: s(2.5) },
+    { num: '4', title: 'Begin Testing', timeline: 'Weeks 4-10', desc: 'Comprehensive compound and hormone analysis', y: s(3.2) },
+    { num: '5', title: 'First GO/NO-GO Decision', timeline: 'Week 10', desc: 'Review results: Proceed or exit with minimal loss', y: s(3.9) }
   ];
 
   steps.forEach(step => {
     // Number badge
     slide.addShape('ellipse', {
-      x: 0.6, y: step.y, w: 0.4, h: 0.4,
+      x: s(0.6), y: step.y, w: s(0.4), h: s(0.4),
       fill: { color: colors.goldAccent }
     });
 
     slide.addText(step.num, {
-      x: 0.6, y: step.y, w: 0.4, h: 0.4,
+      x: s(0.6), y: step.y, w: s(0.4), h: s(0.4),
       fontSize: 20,
       bold: true,
       color: 'ffffff',
@@ -1279,14 +1300,14 @@ function createSlide16() {
 
     // Content
     slide.addText(step.title + ' - ' + step.timeline, {
-      x: 1.2, y: step.y + 0.02, w: 8, h: 0.2,
+      x: s(1.2), y: step.y + 0.02, w: s(8), h: s(0.2),
       fontSize: 17,
       bold: true,
       color: colors.oceanBlue
     });
 
     slide.addText(step.desc, {
-      x: 1.2, y: step.y + 0.24, w: 8, h: 0.15,
+      x: s(1.2), y: step.y + 0.24, w: s(8), h: s(0.15),
       fontSize: 14,
       color: colors.darkText
     });
@@ -1303,7 +1324,7 @@ function createSlide17() {
 
   // Main headline
   slide.addText('Let\'s Test Our Hypothesis', {
-    x: 1, y: 1.0, w: 8, h: 0.8,
+    x: s(1), y: s(1.0), w: s(8), h: s(0.8),
     fontSize: 42,
     bold: true,
     color: colors.lightText,
@@ -1311,7 +1332,7 @@ function createSlide17() {
   });
 
   slide.addText('Hypothesis', {
-    x: 4.2, y: 1.05, w: 1.6, h: 0.7,
+    x: s(4.2), y: s(1.05), w: s(1.6), h: s(0.7),
     fontSize: 42,
     bold: true,
     color: colors.goldAccent,
@@ -1320,20 +1341,20 @@ function createSlide17() {
 
   // Stats boxes
   const stats = [
-    { label: 'Initial Commitment', value: '$15-25K', x: 0.75 },
-    { label: 'Potential Upside', value: '$6-10M', x: 3.5 },
-    { label: 'Risk Management', value: 'Controlled\nat Every Stage', x: 6.25 }
+    { label: 'Initial Commitment', value: '$15-25K', x: s(0.75) },
+    { label: 'Potential Upside', value: '$6-10M', x: s(3.5) },
+    { label: 'Risk Management', value: 'Controlled\nat Every Stage', x: s(6.25) }
   ];
 
   stats.forEach(stat => {
     slide.addShape('rect', {
-      x: stat.x, y: 2.2, w: 2.8, h: 0.8,
+      x: stat.x, y: s(2.2), w: s(2.8), h: s(0.8),
       fill: { color: 'ffffff' },
-      line: { color: colors.goldAccent, width: 2 }
+      line: { color: colors.goldAccent, width: s(2) }
     });
 
     slide.addText(stat.label, {
-      x: stat.x, y: 2.28, w: 2.8, h: 0.2,
+      x: stat.x, y: s(2.28), w: s(2.8), h: s(0.2),
       fontSize: 13,
       bold: true,
       color: colors.oceanBlue,
@@ -1341,7 +1362,7 @@ function createSlide17() {
     });
 
     slide.addText(stat.value, {
-      x: stat.x, y: 2.52, w: 2.8, h: 0.4,
+      x: stat.x, y: s(2.52), w: s(2.8), h: s(0.4),
       fontSize: 24,
       bold: true,
       color: colors.oceanBlue,
@@ -1352,12 +1373,12 @@ function createSlide17() {
 
   // Question box
   slide.addShape('rect', {
-    x: 1.5, y: 3.3, w: 7, h: 0.7,
+    x: s(1.5), y: s(3.3), w: s(7), h: s(0.7),
     fill: { color: colors.goldAccent }
   });
 
   slide.addText('Ready to Transform\nCrisis into Opportunity?', {
-    x: 1.5, y: 3.35, w: 7, h: 0.6,
+    x: s(1.5), y: s(3.35), w: s(7), h: s(0.6),
     fontSize: 26,
     bold: true,
     color: 'ffffff',
@@ -1367,7 +1388,7 @@ function createSlide17() {
 
   // Closing text
   slide.addText('The only risk greater than trying this strategy\nis continuing to do nothing while our market disappears.', {
-    x: 1, y: 4.2, w: 8, h: 0.4,
+    x: s(1), y: s(4.2), w: s(8), h: s(0.4),
     fontSize: 16,
     color: colors.seafoamGreen,
     align: 'center',

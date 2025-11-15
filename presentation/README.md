@@ -37,7 +37,7 @@ This presentation repositions Mallacoota's wild black lip abalone from a commodi
 **Typography:**
 - Headlines: Segoe UI Bold
 - Body: Segoe UI Regular
-- 16:9 aspect ratio (960px × 540px)
+- Full HD 16:9 aspect ratio (1920px × 1080px)
 
 ## Key Strategic Elements
 
