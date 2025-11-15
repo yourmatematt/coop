@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --ocean-blue: #003366;
+      --pearl-white: #F8F8F8;
+      --gold-accent: #D4AF37;
+      --seafoam-green: #7FCDCD;
+      --dark-text: #1a1a1a;
+      --light-text: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .slide {
+      width: 960px;
+      height: 540px;
+      background: var(--pearl-white);
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--ocean-blue) 0%, #004d7a 100%);
+      padding: 30px 50px;
+      border-bottom: 4px solid var(--gold-accent);
+    }
+
+    .header-title {
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--light-text);
+      margin: 0;
+    }
+
+    .content {
+      padding: 28px 50px;
+    }
+
+    .risk-box {
+      background: white;
+      border-left: 5px solid var(--seafoam-green);
+      padding: 20px 25px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .risk-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ocean-blue);
+      margin: 0 0 10px 0;
+    }
+
+    .risk-text {
+      font-size: 15px;
+      color: var(--dark-text);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .gate-risk-grid {
+      display: block;
+      margin: 15px 0;
+    }
+
+    .row {
+      display: block;
+      clear: both;
+      margin-bottom: 10px;
+    }
+
+    .col {
+      float: left;
+      box-sizing: border-box;
+    }
+
+    .col-40 {
+      width: 40%;
+      padding-right: 10px;
+    }
+
+    .col-30 {
+      width: 30%;
+      padding: 0 5px;
+    }
+
+    .gate-risk-item {
+      background: white;
+      padding: 12px 15px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .gate-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ocean-blue);
+      margin: 0 0 6px 0;
+    }
+
+    .gate-amount {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold-accent);
+      margin: 0;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+      border: 2px solid #ffc107;
+      padding: 25px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .highlight-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #856404;
+      margin: 0 0 12px 0;
+    }
+
+    .highlight-text {
+      font-size: 17px;
+      color: #856404;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .success-stat {
+      background: linear-gradient(135deg, var(--ocean-blue) 0%, #004d7a 100%);
+      color: var(--light-text);
+      padding: 25px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-label {
+      font-size: 18px;
+      margin: 0 0 10px 0;
+      color: var(--seafoam-green);
+    }
+
+    .stat-value {
+      font-size: 42px;
+      font-weight: 700;
+      margin: 0;
+      color: var(--gold-accent);
+    }
+
+    .stat-subtext {
+      font-size: 15px;
+      margin: 10px 0 0 0;
+      color: var(--light-text);
+    }
+
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="header">
+      <h1 class="header-title">Risk Management</h1>
+    </div>
+
+    <div class="content">
+      <div class="risk-box">
+        <h3 class="risk-title">🛡️ Gate System Minimizes Exposure</h3>
+        <p class="risk-text">Clear GO/NO-GO decision points mean you never commit to the full strategy upfront. Exit at any stage with controlled, predictable losses.</p>
+      </div>
+
+      <div class="row clearfix">
+        <div class="col col-40">
+          <div class="risk-box">
+            <h3 class="risk-title">💰 Maximum Risk per Gate</h3>
+            <p class="risk-text">Your exposure at any single decision point is limited to current investment only—never the total.</p>
+          </div>
+        </div>
+        <div class="col col-30">
+          <div class="gate-risk-item">
+            <div class="gate-name">Gate 1</div>
+            <div class="gate-amount">$15-25K</div>
+          </div>
+        </div>
+        <div class="col col-30">
+          <div class="gate-risk-item">
+            <div class="gate-name">Gate 2</div>
+            <div class="gate-amount">$5-10K</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row clearfix">
+        <div class="col col-40">
+          <div class="gate-risk-item" style="margin-top: 10px;">
+            <div class="gate-name">Gate 3</div>
+            <div class="gate-amount">$10-15K</div>
+          </div>
+        </div>
+        <div class="col col-30">
+          <div class="gate-risk-item" style="margin-top: 10px;">
+            <div class="gate-name">Gate 4</div>
+            <div class="gate-amount">$30-50K</div>
+          </div>
+        </div>
+        <div class="col col-30">
+          <div class="gate-risk-item" style="margin-top: 10px;">
+            <div class="gate-name">Gate 5</div>
+            <div class="gate-amount">$50-100K</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <div class="highlight-title">Exit Anytime with Controlled Losses</div>
+        <p class="highlight-text">If lab results fail, you're out $25K max. If influencer test fails, you're out $50K total. Compare this to the status quo: losing $6M in annual revenue with no plan.</p>
+      </div>
+
+      <div class="success-stat">
+        <div class="stat-label">Probability-Adjusted ROI</div>
+        <div class="stat-value">378%</div>
+        <p class="stat-subtext">Even accounting for risk of failure at each gate</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Speaker Notes:
+  Our stage-gate approach is designed to minimize financial risk. Maximum exposure at any single gate ranges from $15-25K initially to $50-100K at scale—but only after proving success at earlier stages. You can exit anytime with controlled losses. Even with probability-adjusted returns accounting for failure risk at each gate, ROI is still 378%—dramatically better than the status quo of declining revenue with no recovery plan.
+  -->
+</body>
+</html>

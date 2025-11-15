@@ -1,0 +1,20 @@
+{
+  "name": "mallacoota-beauty-pivot-presentation",
+  "version": "1.0.0",
+  "description": "PowerPoint presentation for Mallacoota Black Lip Abalone Co-Operative beauty market repositioning",
+  "main": "create-presentation.js",
+  "scripts": {
+    "create": "node create-presentation.js"
+  },
+  "keywords": [
+    "presentation",
+    "powerpoint",
+    "mallacoota",
+    "abalone"
+  ],
+  "author": "Mallacoota Black Lip Abalone Co-Operative",
+  "license": "ISC",
+  "dependencies": {
+    "pptxgenjs": "^3.12.0"
+  }
+}

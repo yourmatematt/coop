@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --ocean-blue: #003366;
+      --pearl-white: #F8F8F8;
+      --gold-accent: #D4AF37;
+      --seafoam-green: #7FCDCD;
+      --dark-text: #1a1a1a;
+      --light-text: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .slide {
+      width: 960px;
+      height: 540px;
+      background: var(--pearl-white);
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--ocean-blue) 0%, #004d7a 100%);
+      padding: 30px 50px;
+      border-bottom: 4px solid var(--gold-accent);
+    }
+
+    .header-title {
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--light-text);
+      margin: 0;
+    }
+
+    .content {
+      padding: 30px 50px;
+    }
+
+    .row {
+      display: block;
+      clear: both;
+      margin-bottom: 18px;
+    }
+
+    .col {
+      float: left;
+      box-sizing: border-box;
+    }
+
+    .col-50 {
+      width: 50%;
+      padding: 0 10px;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, var(--ocean-blue) 0%, #004d7a 100%);
+      color: var(--light-text);
+      padding: 25px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .product-name {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--gold-accent);
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    .product-tagline {
+      font-size: 18px;
+      color: var(--seafoam-green);
+      margin: 8px 0 0 0;
+      font-style: italic;
+    }
+
+    .detail-box {
+      background: white;
+      padding: 18px 22px;
+      margin-bottom: 12px;
+      border-left: 5px solid var(--seafoam-green);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .detail-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ocean-blue);
+      margin: 0 0 6px 0;
+    }
+
+    .detail-text {
+      font-size: 15px;
+      color: var(--dark-text);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .stat-grid {
+      display: block;
+    }
+
+    .stat-item {
+      background: white;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ocean-blue);
+      margin: 0 0 4px 0;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--dark-text);
+      margin: 0;
+    }
+
+    .success-box {
+      background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+      border: 2px solid #28a745;
+      padding: 18px 22px;
+      border-radius: 8px;
+    }
+
+    .success-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: #155724;
+      margin: 0 0 10px 0;
+    }
+
+    .success-text {
+      font-size: 16px;
+      color: #155724;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .investment-box {
+      background: var(--gold-accent);
+      color: white;
+      padding: 15px;
+      border-radius: 6px;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .investment-label {
+      font-size: 14px;
+      margin: 0 0 4px 0;
+    }
+
+    .investment-value {
+      font-size: 26px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="header">
+      <h1 class="header-title">Gate 4: Limited Launch</h1>
+    </div>
+
+    <div class="content">
+      <div class="highlight-box">
+        <div class="product-name">Mallacoota Beauty Reserve</div>
+        <p class="product-tagline">Premium Wild Abalone for Beauty & Wellness</p>
+      </div>
+
+      <div class="row clearfix">
+        <div class="col col-50">
+          <div class="detail-box">
+            <div class="detail-title">Product Launch</div>
+            <p class="detail-text">5,000-10,000 units at $60-80 per can, premium packaging with lab-verified claims</p>
+          </div>
+
+          <div class="detail-box">
+            <div class="detail-title">Marketing Strategy</div>
+            <p class="detail-text">15-20 mid-tier influencers (150K-500K followers) in Singapore & Malaysia beauty space</p>
+          </div>
+
+          <div class="detail-box">
+            <div class="detail-title">Distribution</div>
+            <p class="detail-text">E-commerce direct to consumer; test select beauty retailers</p>
+          </div>
+        </div>
+
+        <div class="col col-50">
+          <div class="stat-grid">
+            <div class="stat-item">
+              <div class="stat-number">5K-10K</div>
+              <div class="stat-label">Units</div>
+            </div>
+
+            <div class="stat-item">
+              <div class="stat-number">$60-80</div>
+              <div class="stat-label">Price per Can</div>
+            </div>
+
+            <div class="stat-item">
+              <div class="stat-number">15-20</div>
+              <div class="stat-label">Mid-Tier Influencers</div>
+            </div>
+          </div>
+
+          <div class="success-box">
+            <div class="success-title">Success Criteria</div>
+            <p class="success-text">70% sell-through in 3 months validates demand and pricing</p>
+          </div>
+
+          <div class="investment-box">
+            <div class="investment-label">Investment</div>
+            <div class="investment-value">$30-50K</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Speaker Notes:
+  Gate 4 launches our premium "Mallacoota Beauty Reserve" line with 5,000-10,000 units at $60-80 per can. We partner with 15-20 mid-tier influencers and sell direct-to-consumer via e-commerce. Success means 70% sell-through in 3 months, validating both demand and premium pricing. Investment is $30-50K for packaging, influencer partnerships, and initial inventory.
+  -->
+</body>
+</html>

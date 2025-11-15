@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --ocean-blue: #003366;
+      --pearl-white: #F8F8F8;
+      --gold-accent: #D4AF37;
+      --seafoam-green: #7FCDCD;
+      --dark-text: #1a1a1a;
+      --light-text: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .slide {
+      width: 960px;
+      height: 540px;
+      background: linear-gradient(135deg, var(--ocean-blue) 0%, #001a33 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ocean-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 150px;
+      background: linear-gradient(to bottom, transparent 0%, rgba(127, 205, 205, 0.15) 100%);
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 2;
+      padding: 50px 60px;
+      text-align: center;
+    }
+
+    .main-headline {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--light-text);
+      margin: 0 0 40px 0;
+      line-height: 1.2;
+    }
+
+    .cta-highlight {
+      color: var(--gold-accent);
+    }
+
+    .stats-grid {
+      display: block;
+      margin: 40px 0;
+    }
+
+    .row {
+      display: block;
+      clear: both;
+      margin-bottom: 20px;
+    }
+
+    .col {
+      float: left;
+      box-sizing: border-box;
+    }
+
+    .col-33 {
+      width: 33.33%;
+      padding: 0 15px;
+    }
+
+    .stat-box {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 25px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      border-top: 4px solid var(--gold-accent);
+    }
+
+    .stat-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ocean-blue);
+      margin: 0 0 10px 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .stat-value {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--ocean-blue);
+      margin: 0;
+    }
+
+    .question-box {
+      background: var(--gold-accent);
+      color: white;
+      padding: 30px 40px;
+      border-radius: 8px;
+      margin-top: 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .question-text {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .subtext {
+      font-size: 18px;
+      color: var(--seafoam-green);
+      margin: 30px 0 0 0;
+      line-height: 1.6;
+    }
+
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="ocean-wave"></div>
+    <div class="content-wrapper">
+      <h1 class="main-headline">Let's Test Our <span class="cta-highlight">Hypothesis</span></h1>
+
+      <div class="stats-grid">
+        <div class="row clearfix">
+          <div class="col col-33">
+            <div class="stat-box">
+              <div class="stat-label">Initial Commitment</div>
+              <div class="stat-value">$15-25K</div>
+            </div>
+          </div>
+
+          <div class="col col-33">
+            <div class="stat-box">
+              <div class="stat-label">Potential Upside</div>
+              <div class="stat-value">$6-10M</div>
+            </div>
+          </div>
+
+          <div class="col col-33">
+            <div class="stat-box">
+              <div class="stat-label">Risk Management</div>
+              <div class="stat-value" style="font-size: 24px;">Controlled<br/>at Every Stage</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-box">
+        <p class="question-text">Ready to Transform<br/>Crisis into Opportunity?</p>
+      </div>
+
+      <p class="subtext">The only risk greater than trying this strategy<br/>is continuing to do nothing while our market disappears.</p>
+    </div>
+  </div>
+
+  <!-- Speaker Notes:
+  This is the moment of decision. We're asking for just $15-25K to test our hypothesis with lab results. The potential upside is $6-10M in annual revenue. Risk is controlled at every stage through our gate system. The real question isn't whether we can afford to try this—it's whether we can afford not to. Let's approve Gate 1 and take the first step toward securing our future.
+  -->
+</body>
+</html>

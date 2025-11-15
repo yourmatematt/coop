@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --ocean-blue: #003366;
+      --pearl-white: #F8F8F8;
+      --gold-accent: #D4AF37;
+      --seafoam-green: #7FCDCD;
+      --dark-text: #1a1a1a;
+      --light-text: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .slide {
+      width: 960px;
+      height: 540px;
+      background: var(--pearl-white);
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--ocean-blue) 0%, #004d7a 100%);
+      padding: 30px 50px;
+      border-bottom: 4px solid var(--gold-accent);
+    }
+
+    .header-title {
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--light-text);
+      margin: 0;
+    }
+
+    .content {
+      padding: 28px 50px;
+    }
+
+    .gate-section {
+      background: white;
+      border: 3px solid var(--ocean-blue);
+      border-radius: 8px;
+      padding: 20px 25px;
+      margin-bottom: 18px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .gate-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--ocean-blue);
+      margin: 0 0 15px 0;
+      border-bottom: 2px solid var(--gold-accent);
+      padding-bottom: 8px;
+    }
+
+    .gate-content {
+      display: block;
+    }
+
+    .row {
+      display: block;
+      clear: both;
+      margin-bottom: 12px;
+    }
+
+    .col {
+      float: left;
+      box-sizing: border-box;
+    }
+
+    .col-60 {
+      width: 60%;
+      padding-right: 15px;
+    }
+
+    .col-40 {
+      width: 40%;
+    }
+
+    .detail-item {
+      margin-bottom: 10px;
+    }
+
+    .detail-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ocean-blue);
+      margin: 0 0 4px 0;
+    }
+
+    .detail-text {
+      font-size: 14px;
+      color: var(--dark-text);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .bullet-list {
+      margin: 8px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .bullet-list li {
+      font-size: 14px;
+      color: var(--dark-text);
+      margin: 6px 0;
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.4;
+    }
+
+    .bullet-list li:before {
+      content: "▸";
+      color: var(--gold-accent);
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+    }
+
+    .metric-box {
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+      padding: 12px 15px;
+      border-radius: 6px;
+      margin: 8px 0;
+    }
+
+    .metric-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #2e7d32;
+      margin: 0 0 4px 0;
+    }
+
+    .metric-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1b5e20;
+      margin: 0;
+    }
+
+    .investment-row {
+      background: var(--ocean-blue);
+      color: var(--light-text);
+      padding: 12px 18px;
+      border-radius: 6px;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .investment-label {
+      font-size: 14px;
+      margin: 0 0 4px 0;
+      color: var(--seafoam-green);
+    }
+
+    .investment-value {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0;
+      color: var(--gold-accent);
+    }
+
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="header">
+      <h1 class="header-title">Gates 2-3: Legal Review & Testing</h1>
+    </div>
+
+    <div class="content">
+      <div class="gate-section">
+        <h2 class="gate-title">Gate 2: Legal Review</h2>
+        <div class="row clearfix">
+          <div class="col col-60">
+            <div class="detail-item">
+              <div class="detail-label">Objective</div>
+              <p class="detail-text">Determine which claims are legally permissible in Singapore, Malaysia, Hong Kong</p>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">Deliverable</div>
+              <ul class="bullet-list">
+                <li>Approved claim language for packaging and marketing</li>
+                <li>Market-specific compliance requirements</li>
+                <li>Risk assessment for potential regulatory issues</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col col-40">
+            <div class="metric-box">
+              <div class="metric-label">Timeline</div>
+              <div class="metric-value">4-6 Weeks</div>
+            </div>
+            <div class="investment-row">
+              <div class="investment-label">Investment</div>
+              <div class="investment-value">$5-10K</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gate-section">
+        <h2 class="gate-title">Gate 3: Micro-Influencer Test</h2>
+        <div class="row clearfix">
+          <div class="col col-60">
+            <div class="detail-item">
+              <div class="detail-label">Strategy</div>
+              <p class="detail-text">Partner with 5-8 micro-influencers (50K-150K followers) in beauty/wellness space</p>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">Success Metrics</div>
+              <ul class="bullet-list">
+                <li>>5% engagement rate (likes, comments, shares)</li>
+                <li>>80% positive sentiment in comments</li>
+                <li>Validated messaging resonance with target audience</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col col-40">
+            <div class="metric-box">
+              <div class="metric-label">Timeline</div>
+              <div class="metric-value">6-10 Weeks</div>
+            </div>
+            <div class="investment-row">
+              <div class="investment-label">Investment</div>
+              <div class="investment-value">$10-15K</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Speaker Notes:
+  Gates 2 and 3 validate our legal positioning and market messaging. Legal review ensures compliance across target markets for $5-10K. Micro-influencer testing with 5-8 partners proves audience resonance before major investment, requiring greater than 5% engagement and 80% positive sentiment for a GO decision. Combined investment of $15-25K with 10-16 week timeline.
+  -->
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --ocean-blue: #003366;
+      --pearl-white: #F8F8F8;
+      --gold-accent: #D4AF37;
+      --seafoam-green: #7FCDCD;
+      --dark-text: #1a1a1a;
+      --light-text: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .slide {
+      width: 960px;
+      height: 540px;
+      background: var(--pearl-white);
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--ocean-blue) 0%, #004d7a 100%);
+      padding: 30px 50px;
+      border-bottom: 4px solid var(--gold-accent);
+    }
+
+    .header-title {
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--light-text);
+      margin: 0;
+    }
+
+    .content {
+      padding: 28px 50px;
+    }
+
+    .row {
+      display: block;
+      clear: both;
+      margin-bottom: 18px;
+    }
+
+    .col {
+      float: left;
+      box-sizing: border-box;
+    }
+
+    .col-50 {
+      width: 50%;
+      padding: 0 10px;
+    }
+
+    .strategy-box {
+      background: white;
+      border-left: 5px solid var(--ocean-blue);
+      padding: 18px 22px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .strategy-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .strategy-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ocean-blue);
+      margin: 0 0 8px 0;
+    }
+
+    .strategy-text {
+      font-size: 15px;
+      color: var(--dark-text);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .target-box {
+      background: linear-gradient(135deg, var(--ocean-blue) 0%, #004d7a 100%);
+      color: var(--light-text);
+      padding: 25px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .target-label {
+      font-size: 18px;
+      margin: 0 0 10px 0;
+      color: var(--seafoam-green);
+    }
+
+    .target-value {
+      font-size: 36px;
+      font-weight: 700;
+      margin: 0;
+      color: var(--gold-accent);
+    }
+
+    .target-subtext {
+      font-size: 16px;
+      margin: 8px 0 0 0;
+      color: var(--light-text);
+    }
+
+    .market-list {
+      background: white;
+      padding: 18px 22px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .market-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ocean-blue);
+      margin: 0 0 12px 0;
+    }
+
+    .market-item {
+      font-size: 15px;
+      color: var(--dark-text);
+      margin: 8px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .market-item:before {
+      content: "▸";
+      color: var(--gold-accent);
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+      font-size: 18px;
+    }
+
+    .investment-box {
+      background: var(--gold-accent);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .investment-label {
+      font-size: 16px;
+      margin: 0 0 8px 0;
+    }
+
+    .investment-value {
+      font-size: 32px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .investment-period {
+      font-size: 14px;
+      margin: 6px 0 0 0;
+    }
+
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="header">
+      <h1 class="header-title">Gate 5: Scale & Sustain</h1>
+    </div>
+
+    <div class="content">
+      <div class="row clearfix">
+        <div class="col col-50">
+          <div class="strategy-box">
+            <div class="strategy-icon">📱</div>
+            <h3 class="strategy-title">Macro-Influencer Partnerships</h3>
+            <p class="strategy-text">Expand to 1M+ follower beauty influencers across key markets for brand awareness</p>
+          </div>
+
+          <div class="strategy-box">
+            <div class="strategy-icon">🌏</div>
+            <h3 class="strategy-title">Multi-Market Expansion</h3>
+            <p class="strategy-text">Scale beyond Singapore to Malaysia, Hong Kong, Taiwan with localized campaigns</p>
+          </div>
+
+          <div class="strategy-box">
+            <div class="strategy-icon">🏪</div>
+            <h3 class="strategy-title">Premium Retail Partnerships</h3>
+            <p class="strategy-text">Secure placement in Sephora, Watsons, boutique beauty retailers</p>
+          </div>
+        </div>
+
+        <div class="col col-50">
+          <div class="target-box">
+            <div class="target-label">Revenue Target</div>
+            <div class="target-value">20-30%</div>
+            <p class="target-subtext">of total revenue from<br/>premium beauty line</p>
+          </div>
+
+          <div class="market-list">
+            <div class="market-title">Priority Markets</div>
+            <div class="market-item">Singapore (Primary)</div>
+            <div class="market-item">Malaysia (Secondary)</div>
+            <div class="market-item">Hong Kong (Secondary)</div>
+            <div class="market-item">Taiwan (Expansion)</div>
+          </div>
+
+          <div class="investment-box">
+            <div class="investment-label">Annual Investment</div>
+            <div class="investment-value">$50-100K</div>
+            <p class="investment-period">Sustained Marketing & Expansion</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Speaker Notes:
+  Gate 5 focuses on scaling what works. We expand to macro-influencers with 1M+ followers, enter new markets across Asia, and secure premium retail partnerships. The target is generating 20-30% of total co-op revenue from the beauty line. Annual investment of $50-100K sustains marketing and expansion, but at this stage we have proven demand and are growing profitably.
+  -->
+</body>
+</html>
